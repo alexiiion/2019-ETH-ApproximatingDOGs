@@ -1,0 +1,340 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12572,        332]
+NotebookOptionsPosition[     11301,        307]
+NotebookOutlinePosition[     11643,        322]
+CellTagsIndexPosition[     11600,        319]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"input", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<uv.obj\>\"", ",", "\"\<GraphicsComplex\>\""}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"v", "=", 
+     RowBox[{"Part", "[", 
+      RowBox[{"input", ",", "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"f", "=", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{
+       RowBox[{"Cases", "[", 
+        RowBox[{"input", ",", 
+         RowBox[{
+          RowBox[{"Triangle", "[", "x_", "]"}], "\[Rule]", "x"}], ",", 
+         "Infinity"}], "]"}], ",", "1"}], "]"}]}], ";"}], "*)"}]}]}], "Input",\
+
+ CellChangeTimes->{{3.798549618795834*^9, 3.7985496231551323`*^9}, {
+   3.798549675421562*^9, 3.798549681843157*^9}, {3.798549794495471*^9, 
+   3.798549798883051*^9}, 3.798706551811384*^9},
+ CellLabel->
+  "In[308]:=",ExpressionUUID->"a0466407-4310-4854-a04f-563188bc18d3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"LoadOBJ", "[", "path_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"input", "=", 
+       RowBox[{"Import", "[", 
+        RowBox[{"path", ",", "\"\<GraphicsComplex\>\""}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"v", "=", 
+       RowBox[{"Part", "[", 
+        RowBox[{"input", ",", "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"f", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"Cases", "[", 
+          RowBox[{"input", ",", 
+           RowBox[{
+            RowBox[{"Triangle", "[", "x_", "]"}], "\[Rule]", "x"}], ",", 
+           "Infinity"}], "]"}], ",", "1"}], "]"}]}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellLabel->
+  "In[309]:=",ExpressionUUID->"f03538a1-7d45-4f7e-8792-a4cdece65745"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AllEdges", "[", "f_", "]"}], ":=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", "  ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", "\n", "   ", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "1"}], "]"}], ",", 
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "2"}], "]"}]}], "}"}], ",", "\n", "   ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "2"}], "]"}], ",", 
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "3"}], "]"}]}], "}"}], ",", "\n", "   ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "3"}], "]"}], ",", 
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "1"}], "]"}]}], "}"}], ",", "\n", "   ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "2"}], "]"}], ",", 
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "1"}], "]"}]}], "}"}], ",", "\n", "   ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "3"}], "]"}], ",", 
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "2"}], "]"}]}], "}"}], ",", "\n", "  ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "1"}], "]"}], ",", 
+            RowBox[{"Part", "[", 
+             RowBox[{"#", ",", "3"}], "]"}]}], "}"}]}], "\n", "  ", "}"}], 
+        "&"}], ",", "f"}], "]"}], ",", "1"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7987029669605017`*^9, 3.798702991529001*^9}},
+ CellLabel->
+  "In[310]:=",ExpressionUUID->"625831aa-3274-40c6-a3cc-143c2a985225"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"BoundaryLoop", "[", "f_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"edgs", ",", "boundaryEdges", ",", "graph"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"boundaryEdges", "=", 
+        RowBox[{"DirectedEdge", "@@@", 
+         RowBox[{"Part", "[", 
+          RowBox[{
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{"Tally", "[", 
+              RowBox[{"AllEdges", "[", "f", "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Part", "[", 
+                RowBox[{"#", ",", "2"}], "]"}], "\[Equal]", "1"}], "&"}]}], 
+            "]"}], ",", ";;", ",", "1"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Part", "[", 
+        RowBox[{
+         RowBox[{"FindHamiltonianCycle", "[", "boundaryEdges", "]"}], ",", 
+         "1", ",", ";;", ",", "1"}], "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"InnerEdges", "[", "f", "]"}], ":=", 
+   RowBox[{"Part", "[", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"Tally", "[", 
+        RowBox[{"AllEdges", "[", "f", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Part", "[", 
+          RowBox[{"#", ",", "2"}], "]"}], "\[Equal]", "2"}], "&"}]}], "]"}], 
+     ",", ";;", ",", "1"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.798549687541662*^9, 3.7985496885391407`*^9}, {
+  3.798549875043487*^9, 3.7985498766429358`*^9}, {3.798549939451545*^9, 
+  3.7985499524212303`*^9}, {3.798549986149644*^9, 3.798550186719713*^9}, {
+  3.798702980836192*^9, 3.798703025540142*^9}, {3.798703088601856*^9, 
+  3.798703092433514*^9}, {3.798703133037923*^9, 3.798703142510694*^9}, {
+  3.798703558998047*^9, 3.7987035951032057`*^9}, {3.7987036258180647`*^9, 
+  3.79870362930048*^9}},
+ CellLabel->
+  "In[311]:=",ExpressionUUID->"73608e92-e71f-4885-951b-700ae67c210b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MeshToPDF", "[", 
+    RowBox[{"v_", ",", "f_", ",", "pdfName_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v2d", ",", "loop", ",", "edges", ",", "gr"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"v2d", "=", 
+       RowBox[{"Part", "[", 
+        RowBox[{"v", ",", ";;", ",", 
+         RowBox[{";;", "2"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"loop", "=", 
+       RowBox[{"Part", "[", 
+        RowBox[{"v2d", ",", 
+         RowBox[{"BoundaryLoop", "[", "f", "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"edges", "=", 
+       RowBox[{"InnerEdges", "[", "f", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"gr", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"FaceForm", "[", "]"}], ",", "\[IndentingNewLine]", "Green",
+           ",", "\[IndentingNewLine]", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Line", "[", 
+              RowBox[{"Part", "[", 
+               RowBox[{"v2d", ",", "#"}], "]"}], "]"}], "&"}], ",", "edges"}],
+            "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"EdgeForm", "[", "Red", "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Polygon", "[", "loop", "]"}]}], "\[IndentingNewLine]", 
+         "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{"pdfName", ",", "gr", ",", "\"\<PDF\>\"", ",", 
+        RowBox[{"ImageSize", "->", "Full"}]}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7985496896120663`*^9, 3.798549720899502*^9}, {
+   3.7985497553876534`*^9, 3.79854978073925*^9}, {3.798550217902534*^9, 
+   3.798550270983438*^9}, {3.7987031582819653`*^9, 3.7987032161812553`*^9}, 
+   3.798703587618607*^9, {3.7987036391421967`*^9, 3.798703644340345*^9}, {
+   3.798703679645685*^9, 3.798703711664936*^9}, {3.798703800716708*^9, 
+   3.79870393779918*^9}, {3.7987040152318897`*^9, 3.798704025599551*^9}, {
+   3.7987066034440265`*^9, 3.7987066061840844`*^9}},
+ CellLabel->
+  "In[313]:=",ExpressionUUID->"518a6026-325c-436a-acca-b7c5801ea374"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"MeshToPDF", "[", 
+    RowBox[{"v", ",", "f", ",", "\"\<out.pdf\>\""}], "]"}], ";"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.798703955694936*^9, 3.798703965310964*^9}, 
+   3.798706658699562*^9},
+ CellLabel->
+  "In[314]:=",ExpressionUUID->"28f40dbe-2ec9-4987-8334-9cb5ef7889a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"directory", " ", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"NotebookDirectory", "[", "]"}], "}"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"n", " ", "=", " ", "23"}]}], "Input",
+ CellLabel->
+  "In[315]:=",ExpressionUUID->"97a65922-9359-4609-a1df-8198f90be69c"],
+
+Cell[BoxData["\<\"D:\\\\code_repositories\\\\2019_ApproximatingWithDOGs\\\\\
+external code\\\\flat mesh to PDF\"\>"], "Output",
+ CellChangeTimes->{{3.7987069923610687`*^9, 3.798707014593162*^9}},
+ CellLabel->
+  "Out[315]=",ExpressionUUID->"779cf2e1-c538-456a-b8c1-339a43982906"],
+
+Cell[BoxData["23"], "Output",
+ CellChangeTimes->{{3.7987069923610687`*^9, 3.798707014598162*^9}},
+ CellLabel->
+  "Out[316]=",ExpressionUUID->"76d26f73-6327-421e-a2d1-0f035b2eee7f"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{"LoadOBJ", "[", "\"\<uv.obj\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MeshToPDF", "[", 
+  RowBox[{"v", ",", "f", ",", "\"\<out2.pdf\>\""}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.798706900550703*^9, 3.7987069086106367`*^9}, {
+  3.798706961131759*^9, 3.798706975812208*^9}, {3.79870700768326*^9, 
+  3.798707012511266*^9}},
+ CellLabel->
+  "In[317]:=",ExpressionUUID->"e3eaad7c-dd34-44ff-82c2-0fa07e8d75a8"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "0"}], ",", 
+    RowBox[{"i", "<", "n"}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"LoadOBJ", "[", 
+      RowBox[{"\"\<xfab_flat\>\"", "<>", 
+       RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.obj\>\""}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"filename", "=", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"directory", ",", 
+         RowBox[{"\"\<cut\>\"", " ", "<>", 
+          RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.pdf\>\""}]}], 
+        "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"MeshToPDF", "[", "i", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.798706627622831*^9, 3.7987066500136423`*^9}, 
+   3.798706980347169*^9},
+ CellLabel->
+  "In[319]:=",ExpressionUUID->"36f45ff4-787c-4fcf-aee0-1b9d0fc834a6"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{27, Automatic}, {Automatic, 98}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1041, 28, 86, "Input",ExpressionUUID->"a0466407-4310-4854-a04f-563188bc18d3"],
+Cell[1602, 50, 916, 25, 105, "Input",ExpressionUUID->"f03538a1-7d45-4f7e-8792-a4cdece65745"],
+Cell[2521, 77, 1880, 50, 162, "Input",ExpressionUUID->"625831aa-3274-40c6-a3cc-143c2a985225"],
+Cell[4404, 129, 2059, 52, 124, "Input",ExpressionUUID->"73608e92-e71f-4885-951b-700ae67c210b"],
+Cell[6466, 183, 2260, 50, 257, "Input",ExpressionUUID->"518a6026-325c-436a-acca-b7c5801ea374"],
+Cell[8729, 235, 333, 9, 28, "Input",ExpressionUUID->"28f40dbe-2ec9-4987-8334-9cb5ef7889a1"],
+Cell[CellGroupData[{
+Cell[9087, 248, 316, 8, 48, "Input",ExpressionUUID->"97a65922-9359-4609-a1df-8198f90be69c"],
+Cell[9406, 258, 278, 4, 32, "Output",ExpressionUUID->"779cf2e1-c538-456a-b8c1-339a43982906"],
+Cell[9687, 264, 180, 3, 32, "Output",ExpressionUUID->"76d26f73-6327-421e-a2d1-0f035b2eee7f"]
+}, Open  ]],
+Cell[9882, 270, 460, 9, 67, "Input",ExpressionUUID->"e3eaad7c-dd34-44ff-82c2-0fa07e8d75a8"],
+Cell[10345, 281, 952, 24, 105, "Input",ExpressionUUID->"36f45ff4-787c-4fcf-aee0-1b9d0fc834a6"]
+}
+]
+*)
+

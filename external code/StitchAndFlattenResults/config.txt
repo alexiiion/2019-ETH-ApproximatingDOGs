@@ -1,0 +1,5 @@
+
+output_prefix: xfab_
+
+model_name: out.obj
+folder_name: D:\Dropbox\ETH\2019-SIGGRAPH-Developable surfaces (Olga, alex)\Results\__results from siggraph submission\2020_05_15 results smooth seams PH\masonry face first
