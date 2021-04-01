@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\ApplicationController.cpp" />
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\Helper\CurveInterpolation.cpp">
+      <Filter>Constraints\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\PositionConstraintsModel.cpp">
+      <Filter>Constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies\CoverTargetConstraints.cpp">
+      <Filter>Constraints\UpdateStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies\CurveInterpolationConstraints.cpp">
+      <Filter>Constraints\UpdateStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies\GrowTargetConstraints.cpp">
+      <Filter>Constraints\UpdateStrategies</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\ClusteredGeodesicsController.cpp">
+      <Filter>Geodesics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\FeatureGeodesics.cpp">
+      <Filter>Geodesics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\FeatureGeodesicsController.cpp">
+      <Filter>Geodesics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\GeodesicWalker.cpp">
+      <Filter>Geodesics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\MeritSelector.cpp">
+      <Filter>Geodesics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\RuledGeodesicsController.cpp">
+      <Filter>Geodesics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\StoppingCriteria\NormalDeviationStopping.cpp">
+      <Filter>Geodesics\StoppingCriteria</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\WalkingGeodesics.cpp">
+      <Filter>Geodesics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\ConfigParser.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\CreaseFinder.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\CurveHelper.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\GraphCut.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\LinearTransformations.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\Logger.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\MeanCluster.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\MeshLabelling.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\NormalsHelper.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\Serializer.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\TempUtils.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\Utils.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Initialization\GeodesicSurfacesController.cpp">
+      <Filter>Initialization</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\MeshController.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\MeshModel.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\Quad.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Metrics\Coverage.cpp">
+      <Filter>Metrics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Metrics\GaussianCurvature.cpp">
+      <Filter>Metrics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Metrics\SurfaceFeatures.cpp">
+      <Filter>Metrics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\DataModel.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\GeodesicsModel.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\PatchModel.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\RuledSurfacesModel.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\BarycentricPositionalConstraints.cpp">
+      <Filter>Optimization\Constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\DogConstraints.cpp">
+      <Filter>Optimization\Constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\LengthRegularizerConstraints.cpp">
+      <Filter>Optimization\Constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\IsometryObjective.cpp">
+      <Filter>Optimization\Objective</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\Objective.cpp">
+      <Filter>Optimization\Objective</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\SimplifiedBendingObjective.cpp">
+      <Filter>Optimization\Objective</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\OptimizationController.cpp">
+      <Filter>Optimization</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\EqSQP.cpp">
+      <Filter>Optimization\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\NewtonKKT.cpp">
+      <Filter>Optimization\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\PardisoSolver.cpp">
+      <Filter>Optimization\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\line_search.cpp">
+      <Filter>Optimization\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Result\DevelopableResultController.cpp">
+      <Filter>Result</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\AnalyticRulings.cpp">
+      <Filter>Rulings</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\CompoundRulings.cpp">
+      <Filter>Rulings</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\DiscreteRulings.cpp">
+      <Filter>Rulings</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\RuledDevelopableSurface.cpp">
+      <Filter>Rulings</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\Rulings.cpp">
+      <Filter>Rulings</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\Spline.cpp">
+      <Filter>Rulings</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\InteractiveSegmentSelector.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\MenuUpdater.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\MeshViewer.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ResultViewer.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\Utils\Colors.cpp">
+      <Filter>View\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\View.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ViewModel.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ViewUpdater.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ViewUtils.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\main.cpp" />
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\main__backup.cpp" />
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\dependencies\gco-v3.0\GCoptimization.cpp">
+      <Filter>__External Sources\GraphCutOptimization</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\dependencies\gco-v3.0\graph.cpp">
+      <Filter>__External Sources\GraphCutOptimization</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\dependencies\gco-v3.0\LinkedBlockList.cpp">
+      <Filter>__External Sources\GraphCutOptimization</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\dependencies\gco-v3.0\maxflow.cpp">
+      <Filter>__External Sources\GraphCutOptimization</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\ApplicationController.h" />
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\Helper\CoordinateConverter.h">
+      <Filter>Constraints\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\Helper\CurveInterpolation.h">
+      <Filter>Constraints\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\PositionConstraintsModel.h">
+      <Filter>Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies\ConstraintsStrategy.h">
+      <Filter>Constraints\UpdateStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies\CoverTargetConstraints.h">
+      <Filter>Constraints\UpdateStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies\CurveInterpolationConstraints.h">
+      <Filter>Constraints\UpdateStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies\GrowTargetConstraints.h">
+      <Filter>Constraints\UpdateStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\ClusteredGeodesicsController.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\FeatureGeodesics.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\FeatureGeodesicsController.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\GeodesicCandidates.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\GeodesicFeatureConfig.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\GeodesicWalker.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\GeodesicsController.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\GeodesicsDirection.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\MeritSelector.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\RuledGeodesicsController.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\StoppingCriteria\GeodesicsStopping.h">
+      <Filter>Geodesics\StoppingCriteria</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\StoppingCriteria\LengthGeodesicsStopping.h">
+      <Filter>Geodesics\StoppingCriteria</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\StoppingCriteria\NormalDeviationStopping.h">
+      <Filter>Geodesics\StoppingCriteria</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\WalkedData.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Geodesics\WalkingGeodesics.h">
+      <Filter>Geodesics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\ConfigParser.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\CreaseFinder.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\CurveHelper.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\GraphCut.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\LinearTransformations.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\Logger.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\MeanCluster.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\MeshLabelling.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\NormalsHelper.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\Serializer.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\TempUtils.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Helper\Utils.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Initialization\GeodesicSurfacesController.h">
+      <Filter>Initialization</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\Edge.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\MeshController.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\MeshModel.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\PairingModes.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Mesh\Quad.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Metrics\Coverage.h">
+      <Filter>Metrics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Metrics\GaussianCurvature.h">
+      <Filter>Metrics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Metrics\SurfaceFeatures.h">
+      <Filter>Metrics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\ApproximationState.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\DataModel.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\Geodesic.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\GeodesicsModel.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\GlobalSettings.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\OptimizationSettings.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\PatchModel.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\RuledSurfacesModel.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\_DOGOptimizationSettings.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Model\_ResultOptimizationSettings.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\AngleDeficitConstraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\BarycentricPositionalConstraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\CompositeConstraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\Constraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\DogConstraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\LengthRegularizerConstraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\PointPairConstraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Constraints\PositionalConstraints.h">
+      <Filter>Optimization\Constraints</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\CompositeObjective.h">
+      <Filter>Optimization\Objective</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\IsometryObjective.h">
+      <Filter>Optimization\Objective</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\LaplacianObjective.h">
+      <Filter>Optimization\Objective</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\Objective.h">
+      <Filter>Optimization\Objective</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\ProximityObjective.h">
+      <Filter>Optimization\Objective</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\QuadraticConstraintsSumObjective.h">
+      <Filter>Optimization\Objective</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Objective\SimplifiedBendingObjective.h">
+      <Filter>Optimization\Objective</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\OptimizationController.h">
+      <Filter>Optimization</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\EqSQP.h">
+      <Filter>Optimization\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\Newton.h">
+      <Filter>Optimization\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\NewtonKKT.h">
+      <Filter>Optimization\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\PardisoSolver.h">
+      <Filter>Optimization\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\Solver.h">
+      <Filter>Optimization\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Optimization\Solver\line_search.h">
+      <Filter>Optimization\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Result\DevelopableModel.h">
+      <Filter>Result</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Result\DevelopableOptimizationSettings.h">
+      <Filter>Result</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Result\DevelopableResultController.h">
+      <Filter>Result</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\AnalyticRulings.h">
+      <Filter>Rulings</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\CompoundRulings.h">
+      <Filter>Rulings</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\DiscreteRulings.h">
+      <Filter>Rulings</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\RuledDevelopableSurface.h">
+      <Filter>Rulings</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\Rulings.h">
+      <Filter>Rulings</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\Rulings\Spline.h">
+      <Filter>Rulings</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\InteractiveSegmentSelector.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\MenuUpdater.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\MeshViewer.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\Model\MeshViewSettings.h">
+      <Filter>View\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\Model\MeshVisualization.h">
+      <Filter>View\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\Model\ViewModes.h">
+      <Filter>View\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ResultViewer.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\Utils\Colors.h">
+      <Filter>View\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\View.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ViewModel.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ViewUpdater.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\src\View\ViewUtils.h">
+      <Filter>View</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Constraints">
+      <UniqueIdentifier>{56AB2477-1C93-3420-85C7-EED43157346B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Constraints\Helper">
+      <UniqueIdentifier>{A2FD994C-ADC3-3F8A-BC1C-79614EE6CD83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Constraints\UpdateStrategies">
+      <UniqueIdentifier>{478FCE93-463E-3CB9-B1AC-1ACB68B9F816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geodesics">
+      <UniqueIdentifier>{703B2DD5-5727-3F42-A67D-84FCDF782574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geodesics\StoppingCriteria">
+      <UniqueIdentifier>{0F180499-0A30-3498-8029-96D4E3202F49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helper">
+      <UniqueIdentifier>{1C5F1784-30FB-36D2-A3B0-648A3F170200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Initialization">
+      <UniqueIdentifier>{6989FEEB-1B55-39E7-A3F7-B16DA59A0F4C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh">
+      <UniqueIdentifier>{43383EBB-2682-3AA9-A051-07038262FAD8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Metrics">
+      <UniqueIdentifier>{25872FD9-DDE3-37F7-ABED-6CA590BE9E29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{357B4718-86A5-3134-9479-9419AED59F96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization">
+      <UniqueIdentifier>{A4D7ABAA-D0D1-39B4-A959-1B4B486E58A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization\Constraints">
+      <UniqueIdentifier>{3332B2A4-3B4F-3D54-A77D-381104E93F51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization\Objective">
+      <UniqueIdentifier>{E20C1308-DA56-3868-89E0-A0935346A5AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Optimization\Solver">
+      <UniqueIdentifier>{B22ED73B-D728-358E-A9DA-67F85AEABCF9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Result">
+      <UniqueIdentifier>{4DD10556-CCA5-3DC2-B04A-78A44EFBFC1A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rulings">
+      <UniqueIdentifier>{2C219DC8-C5AD-38E9-93AB-B02280C2E43B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{278BB9A2-4DA8-38E5-9979-CBD9733AA172}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Model">
+      <UniqueIdentifier>{FEB45BB6-1999-3BF1-91B4-BD482E1A25F9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Utils">
+      <UniqueIdentifier>{8F639B20-F594-3069-BFED-E87A1B1F70C3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__External Sources">
+      <UniqueIdentifier>{9B0F30E1-B15A-35A9-96AA-9AC853FD5E4C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__External Sources\GraphCutOptimization">
+      <UniqueIdentifier>{4F1556BF-40B0-3B09-B4E9-9B0186102CA7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

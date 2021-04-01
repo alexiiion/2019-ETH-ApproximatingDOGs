@@ -1,0 +1,62 @@
+# comments are ignored
+# do not change the qualifiers (including spaces!)
+# deliminator is the colon :
+
+
+
+# --- starting settings ---
+
+# start_empty
+initialize_optimization: 1
+
+# max_average_edge: 1000000
+# target_max_dimension: 0
+
+
+models_folder: D:/code_repositories/2019_ApproximatingWithDOGs/models/
+# models_folder: C:/Users/alex/0-DATA/__workspace/ApproximatingWithDOGs/models/
+
+# target_max_dimension: 20
+# target:
+# load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/random geodesics/cone/cone_7-30_uniform2590__scene1
+# load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/random geodesics/cone/cone_7-30_uniform2590__scene2
+load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/random geodesics/cone/cone_7-30_uniform2590__scene3
+
+## visualize result
+# models_folder: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/random geodesics/_lilium/2020-08-23_21-03-11__lilium/
+# target: out.obj
+
+
+# --- geodesic selection settings ---
+
+# ruled_vertex_indices: x,x,x
+label_selection_smoothness: 2000
+
+# number_random_points:
+number_random_points_factor: 0.2
+
+# ruled_width: 10
+ruled_width_factor: 0.75
+
+
+# --- geodesic stopping settings ---
+
+# geodesics_directions = 0,45,90
+geodesics_directions: 0,90
+use_geodesics_flat_detetction: 0
+
+geodesics_stopping.outlier_factor: 3.0
+geodesics_stopping.window_size: 10.0
+geodesics_stopping.winding_factor: 1.5
+
+
+# --- coverage settings ---
+
+optimization_settings.outlier_normal_threshold: 1.0
+# optimization_settings.outlier_threshold: 0.3
+optimization_settings.outlier_threshold_factor: 1.50
+# optimization_settings.coverage_threshold: 0.8
+optimization_settings.coverage_threshold_factor: 0.1
+
+optimization_settings.weight_bending_energy: 6.0
+optimization_settings.convergence_developablity_threshold: 0.01

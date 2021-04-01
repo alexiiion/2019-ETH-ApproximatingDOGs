@@ -1,0 +1,33 @@
+
+
+add OMP_NUM_THREADS = <n> to environment variables
+(somehow didn't work for me, so I set the value in the code)
+
+
+Configuration Properties -> C/C++ -> Language
+---------------------------------------------
+OpenMP Support = Yes (/openmp)
+
+
+
+
+Linker -> General -> Additional Library Directories
+---------------------------------------------------
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\pardiso-win
+C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2019.2.190\windows\redist\intel64_win\compiler
+
+
+Linker -> Input -> Additional Dependencies
+------------------------------------------
+libpardiso600-WIN-X86-64.lib
+
+
+
+COPIED in .exe directory:
+-------------------------
+libpardiso600-WIN-X86-64.dll
+libiomp5md.dll (from MKL)
+
+pardiso.lic (NEEDS TO BE IN USER DIRECTORY!! e.g. C:\Users\alex\)
+
+

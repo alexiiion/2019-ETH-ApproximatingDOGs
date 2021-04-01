@@ -1,0 +1,36 @@
+*___features*
+/__build
+__build
+/__build*
+*__build*
+/___old-code
+___old-code
+/paper/__shortcut-miktex-portable.cmd.lnk
+/paper/*.aux
+/paper/*.log
+/paper/*.out
+/paper/*.bbl
+/paper/*.blg
+/paper/*.fdb_latexmk
+/paper/*.gz
+/paper/*.pdf
+/code/dependencies/LBFGSpp
+/code/dependencies/vtp-geodesics
+/.vs
+/code/dependencies/__OLD_libigl
+/code/dependencies/libigl/external/.cache
+/code/dependencies/__unused
+/paper/*.fls
+/models/91 for testing/_other/2020*
+/models/91 for testing/bumpy cube/old
+/models/91 for testing/bumpy side/old
+/models/91 for testing/bunny/smooth bunnies - unused
+/models/91 for testing/bunny/upsampled bunnies
+/models/91 for testing/cone-Stein/2020*
+/models/91 for testing/cone-Stein/other meshings
+/models/91 for testing/lilium/2020*
+/models/91 for testing/spheres-Stein/2020*
+/models/91 for testing/cyclides-Stein/2020*
+/external code/Non-linear projection optimization (PH)/Stitching2/data
+/external code/Non-linear projection optimization (PH)/Stitching2/ad
+/external code/Non-linear projection optimization (PH)/Stitching2/*.off

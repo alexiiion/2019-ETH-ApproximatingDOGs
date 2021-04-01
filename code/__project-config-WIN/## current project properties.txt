@@ -1,0 +1,78 @@
+C/C++ -> Language
+---------------------------------------------
+OpenMP Support = Yes (/openmp)
+
+
+C/C++ -> Code Generation
+---------------------------------------------
+Runtime Library = Multi-threaded DLL (/MD)
+
+
+C/C++ -> Additional Include Directories
+---------------------------------------
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\fitpack\fitpackpp
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Constraints
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Constraints\Helper
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Geodesics
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Helper
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Mesh
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Metrics
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Model
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization\Constraints
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization\Objective
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization\Solver
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\View
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\external\glad\include
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\external\glfw\include
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\shared\cmake\..\..\external\tinyxml2
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\shared\cmake\..\..\include
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\shared\cmake\..\..\external\eigen
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\external\imgui\.
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\gco-v3.0
+%(AdditionalIncludeDirectories)
+
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\fitpack\fitpackpp;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Constraints;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Constraints\Helper;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Constraints\UpdateStrategies;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Geodesics;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Helper;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Mesh;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Metrics;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Model;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization\Constraints;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization\Objective;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\Optimization\Solver;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\src\View;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\external\glad\include;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\external\glfw\include;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\shared\cmake\..\..\external\tinyxml2;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\shared\cmake\..\..\include;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\shared\cmake\..\..\external\eigen;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\libigl\external\imgui\.;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\gco-v3.0;%(AdditionalIncludeDirectories)
+
+
+Linker -> General -> Additional Library Directories
+---------------------------------------------------
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\fitpack\binaries_win_x64\RelWithDebInfo
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\pardiso-win
+C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\compiler\lib\intel64
+C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\redist\intel64_win\compiler
+%(AdditionalLibraryDirectories)
+
+C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\fitpack\binaries_win_x64\RelWithDebInfo;C:\Users\alex\0-DATA\__workspace\ApproximatingWithDOGs\code\dependencies\pardiso-win;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\compiler\lib\intel64;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\redist\intel64_win\compiler;%(AdditionalLibraryDirectories)
+
+
+Linker -> Input -> Additional Dependencies
+------------------------------------------
+fitpackpp.lib
+fitpack.lib
+opengl32.lib
+libpardiso600-WIN-X86-64.lib
+imgui\RelWithDebInfo\imgui.lib
+glad\RelWithDebInfo\glad.lib
+glfw\src\RelWithDebInfo\glfw3.lib
+RelWithDebInfo\tinyxml2.lib
+kernel32.lib
+user32.lib
+gdi32.lib
+winspool.lib
+shell32.lib
+ole32.lib
+oleaut32.lib
+uuid.lib
+comdlg32.lib
+advapi32.lib
+
+fitpackpp.lib;fitpack.lib;opengl32.lib;libpardiso600-WIN-X86-64.lib;imgui\RelWithDebInfo\imgui.lib;glad\RelWithDebInfo\glad.lib;glfw\src\RelWithDebInfo\glfw3.lib;RelWithDebInfo\tinyxml2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib
+
+
+COPIED in .exe directory:
+-------------------------
+libpardiso600-WIN-X86-64.dll
+(works without copying libiomp5md.dll (from Intel))

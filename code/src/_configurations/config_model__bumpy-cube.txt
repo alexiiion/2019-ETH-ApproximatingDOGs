@@ -1,0 +1,62 @@
+# comments are ignored
+# do not change the qualifiers (including spaces!)
+# deliminator is the colon :
+
+
+
+# --- starting settings ---
+
+# start_empty
+initialize_optimization: 1
+
+# max_average_edge: 1000000
+# target_max_dimension: 0
+
+
+models_folder: D:/code_repositories/2019_ApproximatingWithDOGs/models/
+# models_folder: C:/Users/alex/0-DATA/__workspace/ApproximatingWithDOGs/models/
+
+target_max_dimension: 20
+target: ./91 for testing/bumpy cube/bumpy-cube_F6000.obj
+# target: ./91 for testing/bumpy cube/bumpy-cube_F2496_creases.obj
+# load_scene: 
+
+
+# --- geodesic selection settings ---
+
+## randomly found geodesics
+ruled_vertex_indices: 18 1804 2000 104 1782 1955 2983 171 1463 1309 1850 254 1443 1684 338 1271 354 2200 2171 2306 465 1032 549 1099 1197 676 757 2936 2663 2920 771 2419 2657 870 2563 2472 2517 1577
+## hand picked, not working well
+# ruled_vertex_indices: 1901 2593 1759 1456 1961 1129 1538 2277 991 1375 1234 1622 1217 1561 1266 1693 1039 959 2689 1436
+# ruled_vertex_indices: 2814 1120 2180 2499 1507 1865 1039 1690 1326 1217 2374 1274 2630 1561
+
+# number_random_points:
+number_random_points_factor: 0.2
+
+label_selection_smoothness: 200
+
+# ruled_width: 10
+ruled_width_factor: 0.5
+
+
+# --- geodesic stopping settings ---
+
+# geodesics_directions = 0 45 90
+geodesics_directions: 0 90
+use_geodesics_flat_detetction: 0
+
+geodesics_stopping.outlier_factor: 3.0
+geodesics_stopping.window_size: 5.0
+geodesics_stopping.winding_factor: 1.25
+
+
+# --- coverage settings ---
+
+optimization_settings.outlier_normal_threshold: 0.7
+# optimization_settings.outlier_threshold: 0.3
+optimization_settings.outlier_threshold_factor: 0.8
+# optimization_settings.coverage_threshold: 0.8
+optimization_settings.coverage_threshold_factor: 0.035
+
+optimization_settings.weight_bending_energy: 6.0
+optimization_settings.convergence_developablity_threshold: 0.01

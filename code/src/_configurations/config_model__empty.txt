@@ -1,0 +1,57 @@
+# comments are ignored
+# do not change the qualifiers (including spaces!)
+# deliminator is the colon :
+
+
+
+# --- starting settings ---
+
+# start_empty
+# initialize_optimization: 0
+
+# max_average_edge: 1000000
+# target_max_dimension: 0
+
+
+models_folder: D:/code_repositories/2019_ApproximatingWithDOGs/models/
+# models_folder: C:/Users/alex/0-DATA/__workspace/ApproximatingWithDOGs/models/
+
+# target_max_dimension: 20
+# target: 
+# load_scene: 
+
+
+# --- geodesic selection settings ---
+
+# ruled_vertex_indices: x x x
+
+# number_random_points:
+number_random_points_factor: 0.05
+
+label_selection_smoothness: 500
+
+# ruled_width: 10
+ruled_width_factor: 0.5
+
+
+# --- geodesic stopping settings ---
+
+# geodesics_directions = 0 45 90
+geodesics_directions: 0 90
+use_geodesics_flat_detetction: 0
+
+geodesics_stopping.outlier_factor: 3.0
+geodesics_stopping.window_size: 5.0
+geodesics_stopping.winding_factor: 2.0
+
+
+# --- coverage settings ---
+
+optimization_settings.outlier_normal_threshold: 1.0
+# optimization_settings.outlier_threshold: 0.3
+optimization_settings.outlier_threshold_factor: 1.0
+# optimization_settings.coverage_threshold: 0.8
+optimization_settings.coverage_threshold_factor: 0.035
+
+optimization_settings.weight_bending_energy: 6.0
+optimization_settings.convergence_developablity_threshold: 0.01

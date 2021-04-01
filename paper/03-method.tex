@@ -1,0 +1,286 @@
+% !TEX root = ./ApproximatingDOGs.tex
+
+%  NOTATION
+% % specific to Approximating DOGs
+% \newcommand{\target}{\mathcal{S}_t}
+% \newcommand{\result}{\mathcal{S}_d}
+
+
+\section{Method}
+\label{sec:method}
+
+
+Our input is a triangle mesh, which we  call the \emph{target shape} for the rest of this paper and denote by $\target = (V_t,F)$. Our output is a piecewise developable surface that approximates the target and is represented as a triangle mesh with the same connectivity, denoted by $\result = (V_d,F)$; we also output its segmentation to developable patches. Each patch can be fabricated by simply bending a thin sheet of material, and the entire shape can be built by joining the patches together (\figref{fig:1-teaser} \emph{paper craft}). 
+
+As illustrated in \figref{fig:algorithm_overview}, our algorithm consists of two main steps: 
+\begin{enumerate}
+	\item Approximate the target with multiple developable patches.
+	\item Non-linearly project the target shape onto the patches.
+\end{enumerate}
+%
+At the first stage we wrap our target shape with multiple discrete developable patches that approximate different parts of the surface. This results in a set of disconnected,  intersecting developable patches (\figref{fig:algorithm_overview}b), which we denote by $D_i$. These patches  alone are not yet useful for fabrication purposes. At the second stage we compute our final output $\result$ 
+by a special non-linear projection of $\target$ onto the collection of developable patches (\figref{fig:algorithm_overview}c). We describe our wrapping algorithm by first explaining how we fit a single patch to the target surface and then show how to compute the placement of multiple patches to approximate the entire target shape.
+
+
+\begin{figure} [h!]
+	\vspace{10pt}
+	\centering
+	\noindent\includegraphics[width=\linewidth]{figures/"method overview".pdf}
+	\caption{
+		Our algorithm receives the given target shape to approximate~(left). After wrapping it with multiple DOG patches, in this case 5~(middle), we perform a non-linear projection step, which outputs a piecewise developable mesh that approximates the input~(right). The colors indicate the Gaussian curvature $K$, with blue being negative and red positive $K$. 
+\label{fig:algorithm_overview}}
+\end{figure}
+	
+
+\subsection{Locally fitting a single developable patch} 
+\label{sec:wrap_single_dev}
+
+The process of partially wrapping a target surface with a developable surface necessitates a good model for deforming developable surfaces: one that can freely bend in arbitrary directions without being limited by a predetermined set of rulings. Likewise, we would like to use a model that can stretch while staying developable and is not fixed to a predefined isometric planar shape. We use the model of discrete orthogonal geodesic nets (DOGs)  \cite{Rabinovich:DogNets:2018}, as they allow for modeling of developable surfaces without rulings. A DOG is a mesh with regular quadrilateral grid connectivity, where for each vertex of valence greater than 2, all angles in the vertex star are equal.
+
+We wrap the target locally by starting with a flat DOG sheet and minimizing a fitting objective. \figref{fig:single_patch_unstable} demonstrates that this is in itself a nontrivial task. Modeling with DOGs, or any other discrete model of developable surfaces, requires solving optimization problems with many non-linear and non-convex constraints. Constraining the positions of too many vertices of a DOG typically conflicts with its angle constraints and  results in an over-constrained problem, as there might not be a discrete developable surface passing through these points. As \figref{fig:single_patch_unstable} shows, over-constraining a DOG typically results in a failure in optimization. We therefore aim to find a stable way to wrap a given target surface.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\linewidth]{figures/"over-constraining".pdf}
+\caption{
+	Optimizing a single DOG while setting positional constraints at all vertices at once is unstable and typically fails, resulting in a mesh that is crumpled and also does not satisfy the DOG constraints. 
+	\Rev{The dots mark the positional constraints' target (blue) and current (red) locations. }
+\label{fig:single_patch_unstable}}
+\end{figure}
+
+
+\subsubsection{Stable patch initialization} \label{sec:patch_initialization}
+
+Both the theory of smooth developable surfaces and of DOGs shows that one can always constrain a curve on a planar sheet while deforming it isometrically \cite{do_carmo, Rabinovich:DogNets:2018, Rabinovich:DogShapeSpace:2018}. Moreover, if the target curve has non-zero curvature, then this constraint is maximal, in the sense that generally one cannot isometrically deform the sheet and constrain much more than the points on a single curve. Motivated by this, we use the curve-constraining flows of \cite{Rabinovich:DogShapeSpace:2018} to first locally force a coordinate curve on a DOG patch to lie on some isometric curve along the target mesh. Unlike the case of directly constraining all vertices of a DOG, this can be done in a safe and stable manner. By construction, a coordinate curve of a DOG can be seen as a geodesic on it. Instead of fitting this geodesic to an arbitrary isometric curve on the target, we fit it to a \emph{geodesic} with non-vanishing curvature on the target mesh (\figref{fig:constraining_geodesic_to_geodesic}).
+
+By matching a geodesic on the DOG to a geodesic on the target we guarantee the following properties:
+%
+\begin{enumerate}
+	\item Along the matched geodesics, the normals of the DOG patch align with the normals of the target surface.
+	\item If the target mesh is developable and the chosen geodesic on it has non-vanishing curvature, the DOG wraps the target perfectly.
+\end{enumerate}
+%
+\figref{fig:constraining_geodesic_to_geodesic} provides an illustration.  Both of the above properties are mesh-independent. The first property is a consequence of geodesics having non-zero curvature, while the second is shown in \cite{more_on_paper}. Geodesics with vanishing curvature do not have well defined normals, so these properties do not apply.
+
+\begin{figure}[h!]
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"FIG fitting DOG cylinder-01".png}
+\caption{
+	To avoid over-constraining the initially flat DOG, we fit a geodesic in its center (initially a straight line) to a geodesic on the target mesh. Along the matched geodesics, the normals of the DOG align with the normals of the target surface.
+	If the target is developable and the geodesic has non-vanishing curvature, the DOG patch wraps it perfectly. 
+	\label{fig:constraining_geodesic_to_geodesic}}
+\end{figure}
+
+
+\subsubsection{Approximating the surface} 
+
+Fitting a DOG geodesic to a specific target geodesic serves as a stable initialization. On non-developable surfaces, this initialization can often be improved, since the fitted patch still has some degrees of freedom.
+One of the biggest advantages in using DOGs is the ability to model developable surfaces with planar parts and multiple torsal patches, without being bounded by a pre-determined torsal decomposition \cite{Rabinovich:DogNets:2018}. 
+To leverage these advantages, we continue to optimize the DOG patch, using the following strategy.
+
+To approximate the surface, our algorithm adds position constraints in the least squares sense in order to gently pull the initialized patch closer to the target surface. 
+To do so, we start from the well approximated part, i.e., the geodesic on the center line, and iteratively include constraints by growing outwards on the DOG face neighborhood after each optimization step. As \figref{fig:single_patch_constraints_growing} illustrates, this deforms a DOG patch that initially cuts  through the target surface to be tangential to it.
+
+\begin{figure} [h!]
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"FIG fitting DOG-02".png}
+\caption{
+	We optimize a single DOG patch further after the initial geodesic fitting, since it often still has some degrees of freedom. To do so, we iteratively add soft position constraints from the centerline geodesic outwards. This leads to a better target surface approximation compared to the initialization, where the patch was initially cutting the target surface.
+	\label{fig:single_patch_constraints_growing}}
+\end{figure}
+
+The soft positional constraints $ C $ are constructed by projecting the target mesh vertices  $ V_t $ onto the DOG patch. We formulate the soft constraints as a quadratic objective 
+%
+$$ 
+E_{\text{fit}}(\target) = 
+\sum_{i \in V_t} \delta_i \left\lVert C(i) - V_t(i)\right\rVert ^2,
+$$
+%
+where $V_t(i)$ is a vertex on $ \target $ and $C(i)$ is the closest point on the current DOG patch, expressed as a barycentric combination of DOG vertices. 
+Again, to avoid over-constraining the patch, our algorithm only considers position constraints that are sufficiently close to the current patch shape.
+The exclusion of outliers is performed by $\delta_i$, which is
+$$
+\delta_i = \begin{cases}
+	1 & \text{ if }  \left\lVert  C(i) - V_t(i) \right\rVert \leq  \delta_{\text{distance}} \\ 
+	  & \&  \left\langle N({C(i)}),\ N({V_t(i)}) \right\rangle \geq  \delta_{\text{normal}}\,, \\ 
+%	1 & \text{ if }  C(F_i) = \{ \} \\ 
+	0 & \text{ otherwise, }
+\end{cases}
+$$
+where $N({C(i)})$ is the DOG normal at point $C(i)$ and $N({V_t(i)})$ is the normal of the target vertex $V_t(i)$. If several target vertices are projected onto the same face of the DOG patch, we pick one that fulfills the above criteria and set the $\delta_i$ of the others to zero to avoid conflicting constraints. 
+% We use $\delta_{\text{distance}} = $ 1.1 of the average edge length and $\delta_{\text{normal}} = 0.7 $.
+
+
+\subsubsection{Covering a larger surface}
+
+The length of our DOG patch is governed by the length of the geodesic, however, its width is not specified. When we construct the patch, we set its width to a default value, which is half the largest dimension of the target shape.
+However, the DOG patch might be able to cover a larger surface than its initial size if it is allowed to stretch (while remaining a discrete developable), as shown in \figref{fig:single_patch_stretching}. 
+To achieve this, we relax the outlier threshold $ \delta_{\text{distance}}$.
+Additionally, we apply an energy term that allows the DOG's edge lengths to change while maintaining regularity of the parameterization, as described below.
+
+\begin{figure} [h!]
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"FIG fitting DOG-03".png}
+\caption{
+	To allow the patch to cover a larger surface, we relax the outlier threshold $ \delta_{\text{distance}} $. This leads to a larger set of position constraints in $ E_{\text{fit}} $.
+	\label{fig:single_patch_stretching}}
+\end{figure}
+
+
+\subsubsection{Optimization}
+
+Throughout the approximation, we optimize the DOG patch using equality-constrained SQP as in \cite{Rabinovich:CurvedFolds:2019}. We define the objective similar to \cite{Rabinovich:DogShapeSpace:2018} as a weighted sum of the terms
+%
+\begin{align*}
+	\min \quad & w_{\text{H}} E_{\text{H}} + w_{\text{edge}} E_{\text{edge}} + 
+				  w_{\text{fit}} E_{\text{fit}} \,,\\
+	\text{s.t.} \quad &\text{DOG constraints},\\
+\end{align*}
+%
+where $ E_{\text{H}} $ is the bending energy to keep the DOG patch smooth and $E_{\text{fit}}$ are the soft positional constraints described above. The term $ E_{\text{edge}} $  regularizes the edge lengths within the DOG patch. 
+In the patch initialization and surface approximation step, we maintain isometric edges using the $ E_\text{edge} = E_{\text{iso}} $ from \cite{Rabinovich:DogShapeSpace:2018} (see Eq.(14), page 13). 
+In the stretching step, we exchange the isometry objective with $ E_\text{edge} = E_{\text{uni-opp}}$, a term that allows the DOG's edge lengths to change, while keeping opposing edges of the same length to control the parametrization regularity \cite{Rabinovich:DogShapeSpace:2018} (see Eq.(15)). 
+For all examples in this paper, we used fixed weights of $w_{\text{H}}=6.0$, $w_{\text{edge}}=1.0$, $w_{\text{fit}}=1.5$.
+
+
+\subsection{Global approximation with multiple developables} 
+\label{sec:approximate_multiple_patches}
+
+Now that we know how to fit a patch to a given part of the target surface initialized by a geodesic, we need to find out \emph{where} on the surface we should place patches. General shapes most often are only piecewise developable and therefore require multiple patches to be fitted, unless they are already entirely developable. 
+Our goal is to \emph{cover} our target surface $\target$ with developable patches $D_i$. More precisely, we aim to find a set of developable patches $D_i$ such that the Euclidean distance from each vertex of the target $\target$ to one of the $D_i$'s is smaller than some approximation threshold $\eps > 0$. 
+Hence, the challenge is two-fold: we need to be able to \emph{locally} wrap an area of the target mesh with a single developable as detailed in  \secref{sec:wrap_single_dev}, while also \emph{globally} determining the areas each patch should cover.
+
+Motivated by the previous section, we compute an estimate to this problem. We sample a large set of geodesics on the target surface and quickly  estimate approximate developable surfaces for them. We use these approximate developables to select a smaller subset that still covers the surface up to the given approximation threshold (\figref{fig:multi_patch_geodesic_initialization}). The corresponding geodesics then serve as the initialization for our DOG  patch fitting. We detail in the following how we compute this subset efficiently.
+
+\begin{figure} [h!]
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"initialization pipeline".pdf}
+\caption{
+	To find where on the target we should fit DOG patches, we (\Rev{left})~sample a large set of geodesics, for which we (\Rev{center})~procedurally construct ruled developables. (\Rev{right})~We select a subset of these developables to globally cover the target. Their generating geodesics are the initializations for our DOG patches.
+	Here, we randomly sample 20\% of the 2477 vertices, and select 4 geodesics as our initializers. 
+	% \OSH{$E(l)$ looks weird in the figure, not like in the formula (line 638).}
+	% \AI{fixed look of $E(l)$}
+	\label{fig:multi_patch_geodesic_initialization}}
+\end{figure}
+
+
+\subsubsection{Sampling geodesics}
+
+We sample a set of geodesics by randomly selecting vertices as their starting points and tracing them on the surface in a direction of our choice. We choose the maximum principal curvature direction \cite{Panozzo:PrincipalCurvature:2010}, since it leads to geodesics with higher curvature on cylindrical or conical parts compared to the minimum curvature direction. In fact, a geodesic in direction of minimum curvature on developable shapes is the ruling, i.e., has vanishing curvature and is therefore not a good candidate to initialize a DOG patch, as discussed in \secref{sec:patch_initialization}. 
+Starting from a given vertex, we intersect a straight line in the max principle direction with a triangle edge. Similar to the line-of-sight algorithm for geodesics on polyhedral surfaces \cite{Balasubramanian:Geodesics:2009,polthier2006straightest}, we isometrically flatten the neighboring triangle incident on the edge. We continue our line on the neighboring triangle, maintaining the direction. 
+By repeating this step, we can create geodesics of arbitrary length, which means that we need to find a meaningful stopping criterion.  
+
+Since we only sample the geodesics as stable initializers for the DOG patches, we aim to trace geodesics that would represent \emph{smooth} developable surfaces. As such, our first criterion is to stop tracing a geodesic once its second order normal differences deviate too much. 
+We detect this by an adaptive mean-shift variation, where we keep track of the normal differences of each path segment and evaluate whether a new normal difference exceeds a standard deviation of $3\sigma$, i.e., is an outlier, in which case we stop tracing.
+This ensures that we do not trace geodesics past creases or other large dihedral angles. 
+Secondly, we also prevent geodesics from winding around smaller features (e.g., the bunny's ears) by stopping when the angle sum of the path is $> 2 \pi$. Multiple windings do not offer any additional benefit for our DOG patches and complicate the approximation. 
+
+
+\subsubsection{Finding a subset of initial geodesics on the target} 
+\label{sec:graphcut}
+
+As a next step, we choose a smaller set of geodesics to serve as the initializers for our DOG patches $D_i$. We aim to select geodesics that are well spaced across the target, such that they globally optimize for coverage by DOGs. Since this is merely an initialization, we only need a rough estimate of the DOG patches to assess the coverage quality. Therefore, we efficiently create ruled developable surfaces by passing a spline through each sampled geodesic.
+\Rev{Using the analytic derivates of the spline, we compute} 
+the ruled rectifying developable that interpolates the spline \cite{Bo:GeodesicControlled:2007}.
+We compute the ruling direction as the Darboux vector $r = \tau T + \kappa B$ with $T$ being the unit-length tangent and $B$ the unit binormal of the spline. 
+Since our splines often have inflection points, for which rulings are undefined \cite{do_carmo}, we compute the curve of regression \cite{Pottmann:Book:2001} and disregard very short rulings, as they indicate flat parts on the curve. The resulting ruled surfaces are a very simple representation and only serve the purpose of helping the selection of geodesics.
+
+\Rev{To select a subset of geodesics that covers the target,} we utilize a multi-label graph cut algorithm \cite{Boykov:GraphCut:2001}. 
+\Rev{We opt for this global optimization procedure since} 
+this method has been demonstrated to be effective for similar problem definitions \cite{Herholz:HeightFields:2015}.
+Let our randomly selected set of geodesics correspond to the labels $l_i$, for which we wish to find a minimizer.
+Our data term $d(i, l_i)$ evaluates the distance from a vertex on the target $i \in V_t$ to the closest point on the ruled surface generated by the geodesic with label $l_i$. The smoothness term $s_e$ compares neighboring labels and penalizes the assignment of different labels. To do so, the algorithm traverses the edges $\mathcal{E}$ of the target $\target$ and compares the labels of the two edge vertices. 
+Consequently, we formulate our energy as 
+%
+\begin{align*}
+	E(l) = & \sum_{i \in V_t}{d(i, l_i)} + \sum_{e \in \mathcal{E}}{s(e)} \\
+	\text{where }	\ \ 	& s(e) = \begin{cases}
+							0		 & \text{ if } l(e_0) = l(e_1) \\ 
+							\lambda  & \text{ otherwise. }
+					\end{cases}
+\end{align*}
+
+
+\subsubsection{Fitting DOG patches}
+
+The result of the graph cut algorithm gives us initial locations onto which we can place our DOG patches. We then follow the single DOG patch fitting algorithm as described in \secref{sec:wrap_single_dev}, by first fitting geodesics curves (\figref{fig:constraining_geodesic_to_geodesic}) and then further optimizing and improving our approximation.
+Fitting DOGs, as they are general developable surfaces, improves the coverage compared to simple torsal patches with the \emph{same geodesics} as generator curves. We show in \figref{fig:compare_error_torsal_vs_general} how the error is distributed on the surface. We compute the error simply as the distances between the target $\target$ and the respective covering developables. 
+
+\begin{figure} [h!]
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"coverage error init and dogs".pdf}
+\caption{
+	We confirm that fitting DOGs (right) results in a significantly better coverage than with torsal patches (left). Here, we compare patches using the same geodesics as initial positional constraints for the DOGs and as generator curves for the torsal patches. The maximum distance error is 7.5\% with torsal patches and 4.2\% with DOGs. The latter decreases to 3.7\% as we add another DOG to cover the top (not shown in image).
+	\label{fig:compare_error_torsal_vs_general}}
+\end{figure}
+
+
+
+\subsubsection{Cover any remaining holes}
+
+After our algorithm computes an approximating DOG for each geodesic, we evaluate the coverage of $ \target $. For every vertex in $V_t$, we measure the shortest distance to any patch, resulting in our approximation error $\eps$. 
+\Rev{We visualize this error in \figref{fig:compare_error_torsal_vs_general}.} 
+Our algorithm considers every vertex with an approximation error $ \eps_i > \eps_{\text{max}} $ to be uncovered, where $ \eps_{\text{max}} $ is a user-defined threshold. We define uncovered areas as connected components of uncovered vertices. As shown in \figref{fig:multi_patch_holes}, our algorithm approximates additional patches for uncovered areas using the same steps as before, i.e., it retrieves a geodesic and fits a DOG for each area. 
+
+\begin{figure} [h!]
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"FIG fitting DOG-04".png}
+\caption{
+	After fitting multiple geodesics, our algorithm evaluates uncovered areas marked by red circles in this image. Here, the top of the \emph{Bumpy} model  remained uncovered. Our algorithm adds a patch to achieve good coverage of the target. 
+	\label{fig:multi_patch_holes}}
+\end{figure}
+
+
+
+
+
+\subsection{Non-linear projection of the target onto the patches}
+
+% \AI{(We would restructure Section 3.3 to combine the utility of the terms with their definition).}
+
+Our wrapping algorithm returns a set of intersecting developables that do approximate the target, but also include extraneous parts that need to be culled. Simply cutting these areas might still leave us with small holes, multiple connected components and a resulting mesh with different topology than the target. Instead of \Rev{introducting and subsequently repairing} 
+these topological defects, we take a different approach: We non-linearly project the target mesh onto the wrapping developables. 
+\Rev{Because we use the original mesh and iteratively project it onto the DOGs, we generate a mesh that remains a valid manifold, and has the}
+same combinatorics and topology as the target mesh, but is close to the developable patches (\figref{fig:algorithm_overview}c). 
+\Rev{All our results shown in \secref{sec:results} are valid manifolds, we didn't encounter degenerate meshes as our output.}
+
+As a first step we label each face of the target mesh $\target$ with the index of a close-by DOG patch. Such a labeling induces a decomposition of the mesh into connected components associated with DOG patches.
+Direct projection, i.e. using the patch that is closest to face barycenters, does not yield satifsfactory results as intersections of DOG patches might lead to many isolated components. Therefore we employ a graph cut based approach, similar to the one described in \secref{sec:approximate_multiple_patches}, to obtain a labeling that is both smooth and associated faces to spatially close DOGs. We split the faces of $\target$ into connected components forming a disconnected mesh $\result$. As some vertices will appear in triangles of different labels, they will be duplicated. 
+%
+The non-linear projection step evolves this initial result $\result$ towards a piecewise developable surface. To this end we try to find vertex positions for $\result$ such that the following properties hold:
+\begin{description}
+	\item[DOG Projection:] each vertex should be close to its associated DOG surface.
+	\item[Developability:] the angle defect for each interior vertex should be very small. We use a threshold of $5\E{-3}$ for the maximal angle defect.
+	\item[Smoothness:] the surface should be smooth, exhibiting the least amount of wrinkling possible.
+	\item[Seam Smoothness:] for aesthetic reasons and easier manufacturability we would like seams between developable patches to be as smooth as possible.
+	\item[Connectedness:] corresponding vertices at patch boundaries should be colocated.
+\end{description}
+%
+Each of these objectives is represented as a weighted term in the compound objective function 
+\begin{equation} \label{eq:proj_step12}
+	\nonumber
+	E(\result) = w_\text{angle}E_\text{angle} + w_\text{proj}E_\text{proj}^k + w_\text{L} E_\text{L} +  w_\text{S} E_\text{S}  + w_\text{stitch}E_\text{stitch},
+\end{equation}
+%
+where $E_\text{angle}$ sums the squared angle defects at inner vertices 
+\Rev{normalized by vertex area} 
+and $E_\text{proj}^k$ sums the squared distances of each vertex to the closest point on the DOG corresponding to its label. Over the course of the optimization 
+we reproject vertices onto the DOGs, which allows them to slide over the patches; however, vertices remain always associated with the same DOG.
+%
+The term $E_\text{stitch}$ sums squared distances of corresponding vertices, 
+\Rev{the pairing of which is determined at the labelling stage.} 
+The term $E_\text{L}$ contains a bi-Laplacian energy, encouraging a piecewise smooth solution. 
+%
+Finally, the energy $E_\text{S}$ penalizes non-smooth seams. 
+\Rev{This energy applies 1D smoothing on the seams by employing the combinatorial Laplace operator restricted to the graph of boundary vertices $\mathcal{N}_i$. Two boundary vertices, $x_i$ and $x_j$, are connected by an edge in this graph if they are connected by an edge in the original mesh $\target$.
+We formulate this energy as
+\begin{equation}
+	\nonumber
+	E_\text{S} = \sum_{i}  \Big\|\sum_{j \in \mathcal{N}_i}(x_j - x_i) \Big\|^2.
+\end{equation}
+}
+% \OSH{Should we say who $x_i$'s are? It's the first time we use $x_i, x_j$ notation in the paper.}
+%
+Since the objective $E(\result)$ can be represented as a non-linear least-squares energy, we employ the Gauss-Newton algorithm to optimize it. To enforce developability, we use the quadratic penalty method \cite{nocedal2006numerical}, i.e., we increase the weight $w_\text{angle}$ over the course of the iterations.
+%
+It is well known that optimizing for vanishing discrete Gaussian curvature is generally unstable \cite{stein_dev,zhao2006triangular}. However, we increase the weight $w_\text{angle}$ after the optimization has already moved the vertices close to the DOGs, such that they describe a surface that is almost piecewise developable.

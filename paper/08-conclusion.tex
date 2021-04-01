@@ -1,0 +1,7 @@
+% !TeX root = ./ApproximatingDOGs.tex
+
+\section{Conclusion}  \label{sec:conclusion}
+We presented an automatic algorithm that approximates a given target shape by piecewise developable surfaces. Our method preserves the overall target shape and its topology. The key is that we do not deform the original mesh to compute the approximation, but instead wrap the input with developable patches that we control and optimize. 
+While our method is automatic, we enable users to specify the granularity of the resulting developable representation, effectively steering the tradeoff between assembly effort and approximation error. We demonstrated the effectiveness of our algorithm on several digital and fabricated examples.
+
+In the future, we plan to investigate aesthetic aspects, such as controlling the seam, as well as offering more high-level control for users. We also aim to extend our method to cater to manufacturing needs, e.g., by optimizing developable surfaces with stability, scale and material properties in mind. 

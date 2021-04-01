@@ -1,0 +1,52 @@
+% !TEX root = ./ApproximatingDOGs.tex
+
+
+\section{Related work} 
+\label{sec:related-work}
+
+
+We give an overview of the representative literature on modeling and approximation with developable surfaces.
+
+\paragraph{Modeling with developable surfaces}
+The mathematical study of smooth developable surfaces is over two hundred years old \cite{DevHistory}. The past several decades have seen a significant body of work on \emph{freeform modeling} of developable surfaces, a task that requires determining a specific representation for them that is amenable to user control of the shape.
+There are several such models for developable surfaces, each originating from different equivalent characterizations of developables and then possibly discretized. 
+The representations are based, e.g., on vanishing Gaussian curvature \cite{wang2004achieving}, isometry to the plane \cite{grin_shells}, or the special parameterizations admitted solely by developable surfaces. The latter parameterizations include conjugate ruled nets \cite{conical, Bo:GeodesicControlled:2007, Solomon:Flexible:2012, Tang:InteractiveDevelopables:2016, stein_dev}, orthogonal or parallel geodesic nets \cite{Rabinovich:DogNets:2018,Wang2019geodesic}, 
+\Rev{or isometric quadrangulation of a planar domain to achieve discrete-isometric mappings \cite{Jiang:QuadMapping:2020}. }
+\Rev{Sell\'{a}n et al.~\shortcite{Sellan:RankMinimization:2020} focus on modeling developability of height fields and cast it as a convex rank minimization problem. }
+% \Rev{
+% Recently, Sell\'{a}n et al. [\citeyear{Sellan:RankMinimization:2020}] proposed a very different approach, to approximating developables surfaces. They observe that developability can be cast as a rank constraint and apply rank minimization techniques, yielding a convex problem. This approach has been investigated on height fields. 
+% }
+    
+%
+Different models have different strengths and weaknesses, and for the task at hand we choose different representations for the various stages of our algorithm. 
+
+
+\paragraph{Approximating curved surfaces with developables}
+
+% \paragraph{Deforming the shape.} 
+The methods in \cite{wang2004achieving,stein_dev} iteratively deform an input shape until it becomes a discrete developable surface. The instability of the method of \cite{wang2004achieving}, which minimizes a vertex-based angle deficit objective (a measure of discrete Gaussian curvature) is noted in \cite{stein_dev,zhao2006triangular} and serves as a motivation for the more constrained, ruling-based developable model of \cite{stein_dev}. 
+
+% \paragraph{Varying rulings.}
+In \cite{stein_dev}, the rulings are essentially encoded in the mesh and adapted to reduce the number of developable patches. The geometrical mesh structure emerges in their developable flow process. Other methods that are more concerned with editing rather than approximating with developable surfaces allow ruling directions to vary freely within an a priori defined, global combinatorial mesh decomposition \cite{Solomon:Flexible:2012,Bo:GeodesicControlled:2007}. In contrast, Schreck et al. [\citeyear{Schreck:Crumpling:2015}] present an interactive system that recomputes the composition in a pre-defined fixed domain.
+
+% \paragraph{Decomposition to strips or patches.}
+Decomposing shapes into torsal developable surfaces, i.e., developable surfaces with non-vanishing mean curvature everywhere (no planar parts), is a popular approach. Mitani and Suzuki~\shortcite{mitani2004making} and Liu et al.~\shortcite{Liu:Stripification:2009} use planar quad (PQ) strips, Shatz et al.~\shortcite{Shatz:Papercraft:2006} fit circular cones, Massarwi et al.~\shortcite{massarwi2007papercraft} expand to generalized cones. Note that Shatz et al.\ allow for cone singularities (apexes), as visible in \figref{fig:compare_4bunnies}, which creates smoothness artifacts and may hinder some fabrication processes. All these methods perform the decomposition in a process that relies on a prior segmentation and a subsequent parameterization. 
+The work of \cite{julius2005d} is similar in spirit but decomposes the input into quasi-developable patches as opposed to strips, and these patches are used to make shapes out of paper and fabric. 
+
+Similar to our method, the works of \cite{chen_approx,pottmann_approx} employ developables to wrap an input surface. However, in contrast to our approach, these works do not consider the global nature of the problem and rather use a single ruled patch, essentially relying on the existence of a segmentation of the input mesh if one needs to approximate general geometries and topology.
+
+The global placement of developable patches is nontrivial, therefore a number of previous works rely on user input for guidance. Sch\"uller et al.~\shortcite{schuller2018shape} decompose shapes into a single spiralling ribbon based on user-guided segmentation. Rose et al.~\shortcite{sheffer} interpolate arbitrary sketched boundary curves with developable surface strips. Tang et al.~\shortcite{Tang:InteractiveDevelopables:2016} demonstrate a user guided design tool to approximate input surfaces with piecewise spline developables, where users manually determine the initial location of each patch, unlike our work where this process is automated.
+
+
+\paragraph{Position of this work.} 
+We leverage the larger body of work on developable surfaces, as we detail in \secref{sec:method}, which yields preferable results of our novel approximation algorithm compared to prior methods. \figref{fig:compare_4bunnies} shows that our method produces lower error than the methods of Mitani and Suzuki \shortcite{mitani2004making} and Shatz et al.~\shortcite{Shatz:Papercraft:2006} \emph{and} fewer patches. In comparison to Stein et al.~\shortcite{stein_dev}, our method results in comparable error and \emph{fabricable} parts. Furthermore, our method allows for steering the number of resulting patches. We report the root mean square (RMS) error as the metric that previous works used.  
+
+\begin{figure} [t]
+    \centering
+    % \noindent\includegraphics[width=\linewidth]{figures/"comparison 4 bunnies".pdf}
+    \noindent\includegraphics[width=\linewidth]{figures/"comparison 4 bunnies - no Stein patch".pdf}
+    \caption{
+        Compared to previous methods, our algorithm produces comparable or lower error and fewer patches. \emph{Left to right: }Mitani and Suzuki \shortcite{mitani2004making}, Shatz et al.~\shortcite{Shatz:Papercraft:2006}, Stein et al.~\shortcite{stein_dev}, and our method. The root mean square (RMS) error is computed as cited in the original papers \cite{Cignoni:Metro:1998}. We generated Stein's bunny based on their pre-scripted example. 
+        % \AI{try running Olga's code; if doesn't work, leave this}
+        \label{fig:compare_4bunnies}}
+\end{figure}

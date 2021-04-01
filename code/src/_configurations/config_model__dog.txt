@@ -1,0 +1,81 @@
+# comments are ignored
+# do not change the qualifiers (including spaces!)
+# deliminator is the colon :
+
+
+
+# --- starting settings ---
+
+# start_empty
+initialize_optimization: 1
+
+# max_average_edge: 1000000
+# target_max_dimension: 0
+
+
+models_folder: D:/code_repositories/2019_ApproximatingWithDOGs/models/
+# models_folder: C:/Users/alex/0-DATA/__workspace/ApproximatingWithDOGs/models/
+
+target_max_dimension: 40
+target: /91 for testing/dog/dog_uniform.obj
+# load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/results for paper/dog/2020-01-22_01-56-51__dog_uniform-processed/dog_uniform__scene
+
+
+# --- geodesic selection settings ---
+
+# ruled_vertex_indices: 1049 1145 1735 1272 1918 1138 18 727 463 173 574 1397 752 1469 75 1350 133 1688 54 505 130 681 193 1395 1815
+ruled_vertex_indices: 193 527 328 753 725 1095 363 532
+
+# number_random_points:
+number_random_points_factor: 0.2
+
+label_selection_smoothness: 1
+# label_selection_smoothness: 200
+
+ruled_width: 8
+# ruled_width_factor: 0.35
+
+
+# --- geodesic stopping settings ---
+
+# geodesics_directions = 0 45 90
+geodesics_directions: 0
+use_geodesics_flat_detetction: 0
+
+geodesics_stopping.outlier_factor: 3.0
+geodesics_stopping.window_size: 8.0
+geodesics_stopping.winding_factor: 1.5
+
+
+# --- coverage settings ---
+
+optimization_settings.outlier_normal_threshold: 1.0
+# optimization_settings.outlier_threshold: 0.3
+# optimization_settings.outlier_threshold_factor: 1.0
+optimization_settings.outlier_threshold_factor: 0.5
+# optimization_settings.coverage_threshold: 0.6
+optimization_settings.coverage_threshold: 10000000
+# optimization_settings.coverage_threshold_factor: 0.035
+
+optimization_settings.weight_bending_energy: 2.0
+optimization_settings.convergence_developablity_threshold: 0.01
+
+
+
+
+stop_reading
+
+		////dog model
+		////1049, 1145, 1735, 1272, 1461, 1918, 1138, 1344, 18, 727, 463, 173, 574, 1397, 1510, 752, 1469 // from graph cut
+		//	//+ 75 1350 133 1688 54 505 130 681
+		//	//- 1510 1461 1344
+		////data_model.ruled_vertex_indices = { 1049, 1145, 1735, 1272, 1918, 1138, 18, 727, 463, 173, 574, 1397, 752, 1469, 75, 1350, 133, 1688, 54, 505, 130, 681 }; 
+		////data_model.selected_ruled_vertex_indices = data_model.ruled_vertex_indices;
+		//data_model.ruled_width = 15;
+		//data_model.label_selection_smoothness = 200;
+
+		//data_model.geodesics_stopping.winding_factor = 3.0;
+		//data_model.geodesics_stopping.window_size = 8.0;
+		//data_model.geodesics_stopping.bounds_min_absolute = 0.05;
+		//data_model.optimization_settings.outlier_threshold = data_model.target.average_edge_length * 1.0;
+		//data_model.optimization_settings.coverage_threshold = 0.6;

@@ -1,0 +1,9 @@
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/CMakeFiles/ApproximatingWithDOGs_bin.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/CMakeFiles/tinyxml2.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/CMakeFiles/ALL_BUILD.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/CMakeFiles/ZERO_CHECK.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/glad/CMakeFiles/glad.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/glad/CMakeFiles/ALL_BUILD.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/glfw/CMakeFiles/ALL_BUILD.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/glfw/src/CMakeFiles/glfw.dir
+D:/code_repositories/2019_ApproximatingWithDOGs/code/__build-Win_x64/imgui/CMakeFiles/imgui.dir

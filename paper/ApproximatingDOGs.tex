@@ -1,0 +1,131 @@
+% \documentclass[acmtog]{acmart}
+%\documentclass[acmtog,anonymous,timestamp,review,draft]{acmart}
+
+% SIGGRAPH Asia May 2020
+\documentclass[acmtog]{acmart} 
+% \documentclass[acmtog,anonymous,review]{acmart} 
+\acmSubmissionID{316}
+
+% SIGGRAPH Jan 2020
+% \documentclass[acmtog,anonymous,timestamp,review]{acmart}
+%\acmSubmissionID{110}
+
+
+\usepackage{booktabs} % For formal tables
+
+
+
+% TOG prefers author-name bib system with square brackets
+\citestyle{acmauthoryear}
+\setcitestyle{square,nosort}
+%\setcitestyle{nosort,square} % nosort to allow for manual chronological ordering
+
+
+% \usepackage[ruled]{algorithm2e} % For algorithms
+% \renewcommand{\algorithmcfname}{ALGORITHM}
+% \SetAlFnt{\small}
+% \SetAlCapFnt{\small}
+% \SetAlCapNameFnt{\small}
+% \SetAlCapHSkip{0pt}
+
+
+% Metadata Information
+\acmJournal{TOG} 
+\acmArticle{200} 
+\acmYear{2020}
+\acmVolume{39}
+\acmNumber{6}
+\acmMonth{12} 
+% DOI
+\acmDOI{10.1145/3414685.3417835}
+
+% Copyright
+\setcopyright{rightsretained} 
+
+
+
+\input{99-pre}
+
+% Document starts
+\begin{document}
+% If your title is long, consider \title[short title]{full title} - "short title" will be used for running heads.
+\title[Shape Approximation by Developable Wrapping]{Shape Approximation by Developable Wrapping}
+
+% DO NOT ENTER AUTHOR INFORMATION FOR ANONYMOUS TECHNICAL PAPER SUBMISSIONS TO SIGGRAPH 2019!
+% % Authors.
+\author{Alexandra Ion}
+\author{Michael Rabinovich}
+\author{Philipp Herholz}
+\author{Olga Sorkine-Hornung}
+\affiliation{
+  \ \ 
+  \institution{ETH~Zurich}
+  \department{Department of Computer Science}
+  \streetaddress{Universit\"atstrasse 6}
+  \city{Zurich}
+  \postcode{8092}
+  \country{Switzerland}}
+% This command defines the author string for running heads.
+\renewcommand{\shortauthors}{Ion, Rabinovich, Herholz, Sorkine-Hornung}
+
+% A "teaser" figure, centered below the title and authors and above the body of the work.
+\begin{teaserfigure}
+  \centering
+  \includegraphics[width=\linewidth]{figures/"figure-1_bunny_regular".pdf}
+  \caption{
+    Our algorithm converts a given 3D shape into a piecewise developable surface that approximates it. We wrap the model in developable patches and nonlinearly project the original mesh onto the developables. This makes our algorithm mesh-independent and allows users to choose the approximation quality. Each patch in the end result can be fabricated using sheet material, e.g., paper. 
+  \label{fig:1-teaser}}
+\end{teaserfigure}
+
+% abstract
+\begin{abstract}
+  \input{00-abstract}
+\end{abstract}
+
+%CCS
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10010147.10010371.10010396.10010397</concept_id>
+<concept_desc>Computing methodologies~Mesh models</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10010147.10010371.10010396.10010398</concept_id>
+<concept_desc>Computing methodologies~Mesh geometry models</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Computing methodologies~Mesh models}
+\ccsdesc[500]{Computing methodologies~Mesh geometry models}
+
+%keywords
+\keywords{developable surfaces, discrete differential geometry, geodesic nets, shape modeling}
+
+
+\maketitle
+
+\input{01-introduction}
+\input{02-related-work}
+\input{03-method}
+\input{05-results}
+\input{07-discussion}
+\input{08-conclusion}
+
+
+\begin{acks}
+  We would like to thank David Lindlbauer for feedback, support and help with paper model fabrication and video production. This work was in part supported by the Swiss National Science Foundation (NCCR Digital Fabrication Agreement \#51NF40-182887) and by a DAAD FIT fellowship. 
+  %dfab used by Mark Pauly \#51NF40-141853
+  %dfab as told by dfab people \#51NF40-182887
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+% \input{96-appendix}
+% \input{99-todo-list}
+% \input{04-user-control}
+
+\end{document} 

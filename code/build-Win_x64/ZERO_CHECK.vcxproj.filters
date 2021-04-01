@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\code_repositories\2019_ApproximatingWithDOGs\code\__build-Win_x64\CMakeFiles\6dea59f73308a5f082b713b224dba2b2\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{445FD4E7-8393-3161-947E-96E59E2E5E4E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,16 @@
+Your license key is:
+
+  399677ABEAF98CABAA78D3B38930612744ABC7911DE83F43D5ACBAC0
+
+  License type: Academic License
+  Valid until:  2020-07-23
+
+
+user (account on PC): alex
+email: alexandra.ion@inf.ethz.ch
+
+
+From the manual:
+This license file [pardiso.lic] can be in the home directory of the user, or in the directory from which the user runs a
+program linked with the PARDISO library. Alternatively, this file can be placed in a fixed location and
+the environment variable PARDISO_LIC_PATH set to the path of its location.

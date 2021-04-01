@@ -1,0 +1,30 @@
+# comments are ignored
+# do not change the qualifiers (including spaces!)
+# deliminator is the colon :
+
+
+
+# start_empty
+
+
+models_folder: D:/code_repositories/2019_ApproximatingWithDOGs/models/
+# models_folder: C:/Users/alex/0-DATA/__workspace/ApproximatingWithDOGs/models/
+
+
+## random geodesics
+# config_model: _configurations/config_model__lilium_random-experiment.txt
+# config_model: _configurations/config_model__cone_random-experiment.txt
+config_model: _configurations/config_model__bumpy-side_random-experiements.txt
+# config_model: _configurations/config_model__masonry_random-experiment.txt
+
+## failure cases
+# config_model: _configurations/config_model__pavilion_failure-case.txt
+
+## for input exporting
+# config_model: _configurations/config_model__dome_for-input-storing.txt
+
+
+# config_model: _configurations/config_model__bumpy-cube.txt
+# config_model: _configurations/config_model__face.txt
+# config_model: _configurations/config_model__dog.txt
+# config_model: _configurations/config_model__bumpy-side-irregular.txt

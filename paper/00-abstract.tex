@@ -1,0 +1,11 @@
+% !TEX root = ApproximatingDOGs.tex
+We present an automatic tool to approximate curved geometries with piecewise developable surfaces. At the center of our work is an algorithm that wraps a given 3D input surface with multiple developable patches, each modeled as a discrete orthogonal geodesic net.
+% We then use these patches and a nonlinear projection step to generate a surface that approximates the original input and has the same topology, but is also amendable to simple and efficient fabrication techniques thanks to being piecewise developable. 
+Our algorithm features a global optimization routine for effectively finding the placement of the developable patches. After wrapping the mesh, we use these patches and a non-linear projection step to generate a surface that approximates the original input, but is also amendable to simple and efficient fabrication techniques thanks to being piecewise developable. Our algorithm allows users to steer the tradeoff between approximation power and the number of developable patches used. 
+% Unlike previous works, our algorithm explicitly approximates the input surface, giving the user the ability to tradeoff between approximation power and the number of developable patches used. \OSH{I guess we need to adjust the abstract here?} 
+We demonstrate the effectiveness of our approach on a range of 3D shapes. Compared to previous approaches, our results exhibit a smaller or comparable error with fewer 
+%fabricable 
+patches to fabricate.
+% \OSH{fewer fabricable patches sounds like some of our patches are NOT fabricale. Somehow this last sentence is hard to parse...}
+
+%To determine the location of different wrapping patches, we utilize geodesics on the input target and a graph cuts algorithm. The output of this procedure is a set of chosen geodesics on the input mesh, from which we generate target positional constraints for a a set of developable patches and followup with an additional local optimization routine. The result of our wrapping algorithm is then fed into a post-processing step, generating a surface that approximates the original input but is also amendable to simple and efficient fabrication techniques.

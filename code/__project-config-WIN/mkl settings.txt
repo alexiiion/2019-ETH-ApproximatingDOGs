@@ -1,0 +1,30 @@
+Intel Performance Libraries:
+
+- Use Intel MKL: Sequential
+
+
+
+C/C++:
+
+- Additional Include Dir: 
+C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2019.2.190\windows\redist\intel64_win\mkl
+C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2019.2.190\windows\mkl\include
+
+
+
+Linker:
+
+- Additioanl Library Dir:
+C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2019.2.190\windows\mkl\lib\intel64
+
+- Additional Dependencies: 
+mkl_intel_lp64_dll.lib
+mkl_sequential_dll.lib
+mkl_core_dll.lib
+
+
+
+
+____________
+I manually added %MKLROOT% to environment variables
+____________

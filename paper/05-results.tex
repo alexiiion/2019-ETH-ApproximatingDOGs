@@ -1,0 +1,196 @@
+% !TEX root = ./ApproximatingDOGs.tex
+
+\section{Results} 
+\label{sec:results}
+
+    % \AI{2) For the examples shown in the paper, provide a quantitative measure of developability (for the final, projected mesh). This information should communicate both the worst/average deviation from developability, as well as the spatial distribution over the surface. }
+
+    % \AI{(may improve the illustration by highlighting, with thicker lines, the seams of the final collection of DOGs that approximate the targets. Different colors may be applied to DOGs and the target to make them more differentiable)}
+
+
+\begin{figure*} 
+    \centering
+    \noindent\includegraphics[width=\linewidth]{figures/"results - doubly complex".pdf}
+    \caption{
+        Approximating complex shapes by piecewise developable surfaces results in a sensible abstraction, as showcased by (left) the bumpy cube, (center) the puppy, and (right) the face.
+        (bumpy cube: 24 patches, $d_H = 1.7\%$, $ \Kmax = 2.9\E{-4} $, $ \Kmean = -1.8\E{-7} $; 
+        puppy: 23 patches, $d_H = 3.3\%$, $ \Kmax = 2.6\E{-3} $, $ \Kmean = 3.0\E{-5} $; 
+        face: 16 patches, $d_H = 2.2\%$, $ \Kmax = 9.6\E{-4} $, $ \Kmean = 1.2\E{-5} $)
+    \label{fig:results_complex}}
+\end{figure*}
+
+
+We showcase the applicability of our algorithm on various examples. 
+We cover a representative set of applications, including developable and doubly curved primitives as well as complex shapes.
+\Rev{We indicate the developability of our results using the discrete Gaussian curvature $K$ on the \emph{inner vertices} normalized by their vertex area. For each result, we report the mean $ \Kmean $ and the absolute maximum $ \Kmax $.}
+We indicate the shape similarity by the Hausdorff distance $d_H$, with respect to the length of the bounding box diagonal. 
+
+
+\paragraph{Developable shapes. }
+
+First, we show in \figref{fig:results_primitives_developable} (left) that our algorithm approximates trivial developable shapes, such as a cylinder and cone, smoothly. The cylinder is approximated using a single DOG patch. Although the patch is initially only half the height of the cylinder, the position constraints that allow for stretch enable the approximation with one patch. The cone is represented using two DOG patches, due to the geodesics construction. Yet, as evident in \figref{fig:results_primitives_developable} (right), both patches meet in a smooth manner, 
+% \todo{\OSH{Render so that the seam is better visible?}} 
+resulting in a very good representation.
+
+\begin{figure} [h]
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"FIG results-primitives-developable".png}
+\caption{
+    Our algorithm creates smooth cylinders with one patch thanks to our stretching step in the patch fitting procedure (left). Our smooth cone consists of two patches (right), since we there are no geodesics on the cone that would cover it due to the nature of our geodesic construction. The seams meet smoothly.
+    (cylinder: 1~patch, $d_H = 0.4\%$; %, \AI{$ \Kmax = x $, $ \Kmean = y $}; 
+    cone: 2~patches, $d_H = 1.0\%$  %, {$ \Kmax = 0.00072 $, $ \Kmean = 0.00012 $}
+    )
+    \label{fig:results_primitives_developable}}
+\end{figure}
+
+
+\paragraph{Doubly curved primitives. }
+
+Doubly curved surfaces are certainly more challenging and ambiguous to represent by developables. It is well known that no good solution exists to approximating a sphere with developable surfaces. As shown in \figref{fig:results_primitives_doublycurved} (left), the result of our algorithm is akin to a tennis ball. Our algorithm also succeeds at combinations of developable parts and doubly curved parts, as demonstrated in \figref{fig:results_primitives_doublycurved} (right). This example also showcases the benefit of our non-linear projection of the original mesh, in that the hole at the top is preserved.
+
+\begin{figure} 
+\centering
+% \noindent\includegraphics[width=\linewidth]{figures/"FIG results-primitives-doublycurved".png}
+\noindent\includegraphics[width=\linewidth]{figures/"results--sphere, dome".pdf}
+\caption{
+    We can approximate spheres (left) as well as combinations of developable and doubly curved shapes (right), here a cylinder with a hemisphere. The topology of the input, as demonstrated by the hole on top, is preserved by our non-linear projection. 
+    (sphere: 9~patches, $d_H = 4.1\%$, $ \Kmax = 8.3\E{-4} $, $ \Kmean = 3.3\E{-6} $;
+    dome: 6~patches, $d_H = 1.8\%$, $ \Kmax = 1.8\E{-4} $, $ \Kmean = -1.3\E{-6} $)
+    % \ \ \ \ \AI{dome: make smoother seams}
+    % \ \ \ \ \AI{remove geodesics from sphere}
+    % \AI{beautify: show the geodesics also on the dome}
+    \label{fig:results_primitives_doublycurved}}
+\end{figure}
+
+
+\paragraph{Complex shapes.}
+
+We demonstrate the performance of our algorithm on more complex examples, shown in \figref{fig:results_complex}. We show the result of our algorithm for the entire bumpy cube in \figref{fig:results_complex} (left). We used one side of it to illustrate our method throughout \secref{sec:method}. The bumpy cube is not a trivial example, yet our algorithm produces a good approximation automatically. Similarly, our algorithm approximates the puppy (\figref{fig:results_complex} center) and face (\figref{fig:results_complex} right) models automatically while staying close to the target shape. 
+%
+Developable surfaces have applications, e.g.\ in architecture. We demonstrate an architectural shell example in \figref{fig:results_masonry}, which we also fabricated from paper.
+
+\begin{figure}
+    \centering
+    \noindent\includegraphics[width=\linewidth]{figures/"results-masonry".png}
+    \caption{
+        This architectural shell showcases the use of developable surfaces for architectural design; we fabricated it from paper. The input shape consists of 3551 vertices and results in 7~patches, $d_H = 1.8\%$, $ \Kmax = 4.18\E{-3} $, $ \Kmean = 6.77\E{-6} $. 
+        \label{fig:results_masonry}}
+\end{figure}
+
+% \begin{figure*} 
+%     \centering
+%     \noindent\includegraphics[width=\linewidth]{figures/"results - doubly complex".pdf}
+%     \caption{
+%         Approximating complex shapes by piecewise developable surfaces results in a sensible abstraction, as showcased by (left) the bumpy cube, (center) the puppy, and (right) the face.
+%         (bumpy cube: 24 patches, $d_H = 1.7\%$, $ \Kmax = 2.9\E{-4} $, $ \Kmean = -1.8\E{-7} $; 
+%         puppy: 23 patches, $d_H = 3.3\%$, $ \Kmax = 2.6\E{-3} $, $ \Kmean = 3.0\E{-5} $; 
+%         face: 20 patches, $d_H =  18\%$, $ \Kmax = 7.3\E{-4} $, $ \Kmean = 8.2\E{-7} $)
+%     \label{fig:results_complex}}
+% \end{figure*}
+
+
+\paragraph{Steering the approximation tradeoff. }
+
+Our algorithm is automatic, yet the tradeoff between approximation error and number of patches can be steered by the user. The goal of any developable approximation highly depends on the task or preferences: while for flank milling a very small approximation error might be prioritized, for large-scale or assembly-intensive tasks, such as fabrication from sheet material (e.g., in architecture or ship building), a smaller number of patches might be desirable. Our algorithm allows steering this tradeoff, mainly governed by the parameter $\lambda$, which is the penalty in the smoothness term of our geodesics selection (see \secref{sec:graphcut}). Since we globally optimize the patch placement, increasing this penalty leads to fewer patches being selected, yet their distribution is still optimized. We demonstrate the effects of the $\lambda$ penalty in \figref{fig:results_lilium_lambda}. This confirms that when opting for fewer patches, our algorithm produces sensible abstractions. 
+\figref{fig:results_bunny_granularity} showcases that the granularity adaption performs as expected on the complex models as well, such as the bunny. 
+
+\Rev{
+In our experiments shown in \figref{fig:compare_random_geodesics}, we confirm that the random set of geodesics, if  sufficiently large, does not affect the geodesic selection substantially. For shapes with a clear best fit, like the cone, the three different random sets lead to similar selected geodesics and developable representation. The Lilium model has no clear best developable fit, which results in different geodesics being selected. Nevertheless, the selected geodesics satisfy our objective of covering the target with the given granularity $\lambda$. 
+}
+
+\begin{figure} 
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"lambda 3x lilium".pdf}
+\caption{
+    Our algorithm allows steering the approximation tradeoff via the patch placement optimization. We show how increasing the penalty~$\lambda$ reduces the number of patches at the cost of higher error.
+    \label{fig:results_lilium_lambda}}
+\end{figure}
+
+\begin{figure} 
+\centering
+\noindent\includegraphics[width=0.9\linewidth]{figures/"results - bunny granularity".pdf}
+\caption{
+    \Rev{(Top row)} We show the bunny in two different granularities. The left model has 18~patches and $d_H = 4.1\%$ with $ \Kmax = 2.5\E{-3} $ and $ \Kmean = 2.5\E{-5} $. The right result consists of 26~patches and $d_H = 2.8\% $, with $ \Kmax = 1.4\E{-3} $, and $ \Kmean = 7.2\E{-6} $. 
+    \Rev{(Bottom row) The Gaussian curvature $K$ concentrates onto the resulting creases. We show the absolute Gaussian curvature $\abs{K}$ in red. }
+    \label{fig:results_bunny_granularity}}
+\end{figure}
+
+\begin{figure} 
+	\centering
+	\noindent\includegraphics[width=0.98\linewidth]{figures/"random geodesics--cone, lilium".pdf}
+	\caption{
+        Each result stems form a different set of randomly sampled geodesics.
+        For both examples, we randomly sampled 20\% of the target's vertices, resulting in 518 for the cone and 677 for the Lilium. We show the random geodesics in light gray and the selected geodesics in black. We used $\lambda=2000$ for the cone~(top) and $\lambda=300$ for the Lilium~(bottom). 
+		\label{fig:compare_random_geodesics}}
+\end{figure}
+
+
+
+
+\subsection{Implementation}
+
+We implemented our algorithm in C++ using libigl~\cite{libigl} for geometry processing capabilities and Pardiso~\cite{pardiso-6.0a, pardiso-6.0b, pardiso-6.0c} for solving our linear systems. The results are generated on a 2.5 GHz Intel Core i7-7660U CPU laptop with 16 GB RAM. 
+Computation times for the aforementioned examples lie between 2 and 9 minutes. As this range already implies, the computation speed mainly depends on the chosen granularity, i.e., the number of DOG patches to be fitted. The target mesh resolution, i.e., the number of vertices, does not significantly affect the geodesics and the DOG fitting, but it does impact the non-linear projection step. 
+
+Note that the initialization procedure is very efficient and constitutes only a small percentage of the overall timing. Tracing the geodesics and building approximate ruled developable surfaces is  fast, since we compute analytic rulings from the splines passing through the geodesics. The computation time for the geodesics selection via the multi-label graph cut algorithm depends on the chosen geodesics sample size.
+Note that our prototype implementation currently does not utilize multi-threading. However, fitting the DOG patches as well as tracing the geodesics is trivially parallelizable. 
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{Discussion}
+
+% %%%%%%%%%%%%%%%%%%%%%%%
+
+% \paragraph{Limitations.}
+
+% Our method is designed to approximate arbitrary shapes. Beyond smoothly curved organic shapes, we demonstrate in \figref{fig:mechanical_cube-fandisk} that our algorithm can approximate shapes with sharp creases with little error as well. Sharp creases in the cube and fandisk examples are constructed by our algorithm due to the intersections of the fitted DOG patches. While the error is small, our method is not optimized towards preserving sharp creases, however, which is evident in the fandisk example in \figref{fig:mechanical_cube-fandisk}. For example, the left edge of the center piece is smoothed because the DOG fitted to both sides of the crease. Furthermore, the corners are also smoothed out. Since such mechanical shapes are typically easy to segment based on creases, we acknowledge that other approaches that build on prior segmentation (e.g., \cite{mitani2004making}) likely lead to more feature preserving solutions. Such segmentation can be integrated with our method at the placement finding stage in the future. 
+% Our method is robust with respect to the tessellation of the target shape, as we show in \figref{fig:mesh_robustness}. However, since we use the vertices on the input mesh selectively as position constraints, \emph{extremely sparse} meshing
+% leads to failure in finding geodesics or bad coverage due to few feasible position constraints.
+
+% \begin{figure} [h]
+% \centering
+% \noindent\includegraphics[width=\linewidth]{figures/"sharp-creases".pdf}
+% \caption{
+%     Our method can approximate models with sharp creases. 
+%     (Top)~the cube is approximated with 6 patches ($d_H = 1.2\%$ \AI{$d_H = x\% $, $ \Kmax = x $}), and the fandisk 
+%     (bottom) with 17 patches, ($d_H = 1.7\% $).%, \AI{$ \Kmax = x $)}.
+%     \label{fig:mechanical_cube-fandisk}}
+% \end{figure}
+
+% \begin{figure} [h]
+% \centering
+% \noindent\includegraphics[width=\linewidth]{figures/"mesh robustness".png}
+% \caption{
+%     Our is not limited to uniform meshing, but can approximate meshes that are valid manifolds.
+%     \label{fig:mesh_robustness}}
+% \end{figure}
+
+% \AI{Show a more severely bad-quality input mesh than the one in Figure 19, that demonstrates the algorithm can fail if the input mesh is bad enough. Consider here not just bad triangles on a nice smooth surface, but also meshes that provide a bad approximation of the smooth surface normals. Comment about what kind of meshing is needed in this case.}
+
+% \paragraph{Comparison with Stein et al.~\shortcite{stein_dev} } 
+
+% We already compared our results with previous methods on the bunny example in \figref{fig:compare_4bunnies}. In \figref{fig:compare_stein}, we extend our comparison with Stein et al.~\shortcite{stein_dev}, as it is the most recent representative work in this area. We use their open source code and run several of our models with their method, taking care to select the best possible parameter settings for each example, such as energies and optimizer strategies. 
+% Our method generally results in smoother approximations. The authors do acknowledge that their ``final design is largely guided by the input tessellation'' leaving the user to provide a suitable, curvature aligned mesh. We, on the other hand, use meshes that are common in 3D reconstruction or modeling software. In terms of fabrication, their method lends itself to flank milling, as they acknowledge in their paper. Our results consist of well-defined flattenable patches that can readily be fabricated from sheet material. 
+
+% \begin{figure} [h]
+%     \centering
+%     \noindent\includegraphics[width=\linewidth]{figures/"comparison Stein".pdf}
+%     \caption{
+%         We compare several of our results to the method of  Stein et al.~\shortcite{stein_dev}, as the most recent representative of this line of work. 
+%         % \AI{add errors. }
+%         \label{fig:compare_stein}}
+% \end{figure}
+
+
+% \paragraph{Future user interfaces}
+
+% In this paper, our focus is on building a stable algorithm with only high-level parameters, resulting in high quality, automatic developable approximations. In the future, our algorithm can be augmented with elaborate user interaction for greater real-world impact. Such interaction design requires analysis of users’ requirements, current workflow and context, including how much influence they would like to have in such design tasks. 
+% Since our algorithm is automatic, it is very suitable for suggestive user interfaces, effectively making multiple suggestions to users, which they can mix selectively. This can be implemented within our global placement routine, which accepts pre-initializations and fixed selections. Alternatively, we can use the previously fitted DOGs and let them slide towards poorly covered areas. 
+% If users wish to define a rough layout of the patches, a possible interaction would be to allow them to paint onto the surface. We could trace the closest geodesic and generate preview patches in realtime. These user-selected patches can be used again as pre-selected geodesics in our global placement optimization, which then covers the remaining areas. 
+% Similarly, users may wish to specify different degrees of granularity \emph{locally}. This selection could be integrated into our placement optimization and offered as an interactive brushing interaction for users.
+% Lastly, symmetry is an important visual attribute that contributes to the perception of aesthetics. Our algorithm can be extended by adding symmetry detection and allowing users to select symmetry axes in their design. 
+
+% % \AI{add something about the wavy boundary?}

@@ -1,0 +1,84 @@
+Dear Alexandra Ion,
+
+thank you for signing in!
+ 
+You can now download the PARDISO package at:
+
+  http://www.pardiso-project.org/download/ajan2018600bb6ex6hze7cv15
+
+Your license key is:
+
+  399677ABEAF98CABAA78D3B3893061270778C0931DE83F437F553D90
+
+  License type: Academic License
+  Valid until:  2021-08-10
+
+You can find the accompanying license agreement at:
+
+  http://www.pardiso-project.org/download/academic_license.pdf
+
+Save the key -- without surrounding whitespace -- in a file named 'pardiso.lic' and read the manual for further information on where to put this file. It only works with the most recent PARDISO version.
+
+You can find a mailing list for the solver at:
+
+  https://www.maillist.unibas.ch/mailman/listinfo/pardiso
+
+This list serves as a discussion forum for the parallel sparse direct solver PARDISO. Topics appropriate for this list include bug reports, installation problems, performance reports, and user experiences.
+
+
+We kindly want to remind you to inform us about details (title, author(s), URL, etc) of any report or publication you write and where PARDISO software was utilised to produce or confirm results.
+
+This notification has to be sent to:
+
+  info@pardiso-project.org
+
+Since a lot of time and effort has gone into this new PARDISO version (and also into the Schur-complement and selected inversion method), please cite the following publications if you are using PARDISO for your own research:
+
+@article {pardiso-6.0a,
+	author = {De Coninck, Arne and De Baets, Bernard and Kourounis, Drosos and Verbosio, Fabio and Schenk, Olaf and Maenhout, Steven and Fostier, Jan},	
+	title = {Needles: Toward Large-Scale Genomic Prediction with Marker-by-Environment Interaction},
+	volume = {203},
+	number = {1},
+	pages = {543--555},
+	year = {2016},
+	doi = {10.1534/genetics.115.179887},
+	publisher = {Genetics},
+	issn = {0016-6731},
+	URL = {http://www.genetics.org/content/203/1/543},
+	eprint = {http://www.genetics.org/content/203/1/543.full.pdf},
+	journal = {Genetics}
+}
+
+@article{pardiso-6.0b,
+	author = "Fabio Verbosio and Arne De Coninck and Drosos Kourounis and Olaf Schenk",
+	title = "Enhancing the scalability of selected inversion factorization algorithms in genomic prediction",
+	journal = "Journal of Computational Science",
+	volume = "22",
+	number = "Supplement C",
+	pages = "99 - 108",
+	year = "2017",
+	issn = "1877-7503",
+	url = "https://doi.org/10.1016/j.jocs.2017.08.013",
+}
+
+@ARTICLE{pardiso-6.0c,
+	author={D. Kourounis and A. Fuchs and O. Schenk},
+	journal={IEEE Transactions on Power Systems},
+	title={Towards the Next Generation of Multiperiod Optimal Power Flow Solvers},
+	year={2018},
+	volume={PP},
+	number={99},
+	pages={1-10},
+	keywords={Artificial neural networks;Optimization;Planning;Multiperiod optimal power flow;interior point methods;power system planning},
+	doi={10.1109/TPWRS.2017.2789187},
+	url={https://doi.org/10.1109/TPWRS.2017.2789187},
+	ISSN={0885-8950},
+	month={},
+}
+
+Thank you for using PARDISO! We provide the solver in the hope that it may be useful to others, and we would very much like to hear about your experience with it.
+
+Best regards,
+
+Olaf Schenk (PARDISO main author)
+

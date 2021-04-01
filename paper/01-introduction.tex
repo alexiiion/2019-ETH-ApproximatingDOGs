@@ -1,0 +1,70 @@
+% !TEX root = ./ApproximatingDOGs.tex
+
+
+% % % single column figure
+% % \begin{figure}[h!]
+% %     \includegraphics[width=\linewidth]{figures/...}
+% %     \caption{....
+% %     \label{fig:...}}
+% % \end{figure}
+
+% % % double column figure
+% % \begin{figure*}[t]
+% %     \includegraphics[width=\linewidth]{figures/...}
+% %     \caption{...
+% %     \label{fig:...}}
+% % \end{figure*}
+
+
+\section{Introduction}  
+\label{sec:introduction}
+
+Shapes that can be fabricated by bending or stamping sheets of material (e.g., metal) are highly relevant to the manufacturing industry, since these fabrication processes are more energy efficient than stretching materials. Such shapes are known as developable surfaces, best illustrated by a sheet of paper---at any point it can only be bent in one direction and cannot stretch or compress. Unfortunately, developable surfaces are difficult to design due to their globally constrained geometry, a fact that is likely evident to anyone trying to wrap a noncuboid-shaped gift.
+
+In an attempt to relieve users from this difficult design problem, various research works investigate algorithms to automatically convert 3D shapes into piecewise developable representations. One approach is to deform a given shape until it becomes developable, i.e., until its Gaussian curvature vanishes \cite{wang2004achieving} and creases emerge \cite{stein_dev}. 
+%
+Other approaches automatically produce individual developable strips \cite{massarwi2007papercraft,mitani2004making} or patches \cite{Shatz:Papercraft:2006} that approximate the input shape and can be cut and assembled. 
+Such piecewise approximation problems with individual patches are twofold: they involve (1)~\emph{locally} fitting a good developable representation and (2)~\emph{globally} finding a good placement for the individual developables. The aforementioned methods cover the shape locally with simple triangle strips (i.e., torsal developable surfaces \cite{Pottmann:Book:2001}) in a greedy manner: the placement of their developables relies on prior mesh segmentation (e.g., part-based segmentation) and subsequent decomposition into torsal patches.
+
+In this paper, we propose a novel, fully automatic approximation algorithm that improves on both the local and the global aspects of the problem. 
+Locally, we use \emph{general} developable surfaces instead of solely torsal patches, by employing discrete orthogonal geodesic nets (DOGs) \cite{Rabinovich:DogNets:2018,Rabinovich:DogShapeSpace:2018} in our algorithm. The DOG model is known to capture both extrinsic and intrinsic deformations of developable surfaces without suffering from deformation locking \cite{locking1,locking2,Tang:InteractiveDevelopables:2016}. This model eliminates the need for combinatorial partition of the developable surface into planar and torsal patches and results in a better coverage, since it allows to optimize over the entire developable shape space.
+Globally, we determine where and how many DOGs to place by performing a \emph{global optimization} that is based on developables, i.e., the problem at hand, rather than on more generic mesh segmentation methods.  
+
+We demonstrate how the results of our algorithm are at least comparable with or better than previous methods in terms of approximation error while requiring fewer patches, which eases fabrication (see \figref{fig:compare_4bunnies}). We compare our method with previous works in more detail in \secref{sec:results}. 
+
+We detail our algorithm in \secref{sec:method} and summarize it below, as illustrated in \figref{fig:1-teaser}. 
+The key to our algorithm is to wrap the input model tightly with DOGs, benefiting from their flexibility. 
+% 1. Placement initialization
+Finding a good initial guess of where and how many DOGs to fit is not a trivial step. We initialize the global placement by creating an overcomplete set of geodesics, shown in \figref{fig:1-teaser} (\emph{place}), from which we select a subset using a global multi-labeling graph-cut optimization. 
+% 2. DOG fitting
+The selected geodesics guide the placement of our DOG-fitting optimization process (\figref{fig:1-teaser} \emph{wrap}). Our DOG fitting is devised to prevent over-constraining, which we achieve by first using the geodesics alone as positional constraints and subsequently carefully adding more constraints to wrap and extend over a larger portion of the surface. Thanks to the DOGs' flexibility and our surface fitting process, we achieve a better coverage compared to torsal patches, as shown in \figref{fig:compare_error_torsal_vs_general}.
+% 3) Non-linear projection
+After wrapping the mesh with DOGs, we non-linearly project the parts of the input mesh onto the DOGs to obtain a valid, manifold, piecewise developable representation (\figref{fig:1-teaser} \emph{result}), which can be fabricated (\figref{fig:1-teaser} \emph{paper craft}). % optimize the developablility 
+
+
+\paragraph{Contributions}
+
+The contribution of this paper is a novel \emph{automatic} tool that approximates general curved surfaces by piecewise developable ones. Since we wrap the input mesh with developable surfaces, rather than deforming it \Rev{during the wrapping process, }our algorithm does not depend on information contained in the specific tessellation of the shape and is thus robust to the underlying meshing, \Rev{as we show in \figref{fig:mesh_robustness}.} 
+
+Our specific contributions, illustrated in \figref{fig:benefits}, are as follows:
+We contribute a method for fitting DOGs to general surfaces (\figref{fig:benefits}a).
+% (a) Method for fitting DOGs to general surfaces.
+First, while the flexibility of DOGs has been demonstrated in the context of editing systems with few, predefined position constraints, we contribute a robust method to apply DOGs to automatic surface approximation.
+%
+Secondly, our method allows for granularity control due to the global patch placement optimization (\figref{fig:benefits}b).
+% \paragraph{(b) Granularity control by global patch placement optimization.} 
+Users can specify their desired granularity in terms of number of patches, effectively trading approximation error for ease of assembly. Thanks to our global patch placement being based on developables, our algorithm 
+\Rev{results in an} 
+approximation under the given bounds. 
+
+
+\begin{figure}[t]
+    \includegraphics[width=\linewidth]{figures/"contributions".pdf}
+    \caption{
+    We contribute an approximation method that (a)~uses general developable surfaces, i.e., discrete orthogonal geodesic nets (DOGs). These can model surfaces that torsal patches cannot; in this example we show 3 cylindrically bent parts (signified by the green rulings) connected by a  planar part.
+    % allow us to approximate the surface without an a priori understanding of the 
+    % , to achieve a small approximation error. 
+    (b)~The approximation power of our method can be steered to achieve variable granularity. Here, the bumpy shape is represented with 5 or 11 patches, consequently leading to a decrease in error, measured as the Hausdorff distance w.r.t.\ the bounding box diagonal. 
+    % Since our algorithm does not deform the input mesh, (c) different tessellations of the same shape result in similar approximation results in terms of the piecewise developable shape.
+    \label{fig:benefits}}
+\end{figure}

@@ -1,0 +1,128 @@
+% !TEX root =  ShapeSpaceDog.tex
+\appendix
+
+\section{Proof of \theoremref{thm:single_star_manifold}} \label{appendix:single_star_proof}
+The quantities $l_1,l_2,l_3,l_4,\beta_1,\beta_2$ uniquely define a star with all angles equal, up to rigid motion. Indeed, take two discrete curves (i.e., two chains of 2 edges each) with edge lengths $l_1, l_3$ and $l_2,l_4$, respectively, and angles $\beta_1, \beta_2$, respectively. Place both center vertices at the origin, and observe the discrete Frenet frames of both curves, as defined in \cite{rabi18}. Rotate one of the curves such that its discrete principal normal matches the other and the tangents and binormals coincide. This  guarantees that all angles around the star are equal, and this rotation is unique unless the curve is straight, in which case there is a rotational freedom, but the geometry of the resulting star remains the same. \hfill$\square$
+
+\section{Proof of \lemmaref{lem:angle_grad}} \label{appendix:angle_grad_proof}
+The derivative $\frac{\partial\cos(\alpha_9)}{\partial F_1}$ is clearly not vanishing, since there are directions to move $F_1$ so that $\alpha_9$ changes. The angle and its cosine are defined by the triangle formed by points $F, F_1, F_2$, and by the chain rule, the derivative of any function on this triangle w.r.t.\ one of its vertices has to lie in the plane of the triangle. The angle $\alpha_9$ remains constant if $F_1$ is moved along the direction $F_1-F$, hence the gradient $\frac{\partial\cos(\alpha_9)}{\partial F_1}$ must be perpendicular to this direction.  \hfill$\square$
+
+
+%$\cos(\alpha_9) = \frac{\langle F_1-F,F_2-F \rangle}{\|F_1-F\|\|F_2-F\|}$. Instead of using direct computations, one can use two simple observations when $F,F_1,F_2$ are vertices of a non degenerate triangle. First, as a consequence of the product and quotient rules $\frac{\partial \cos(\alpha_9)}{\partial F_1}$ can be written as a linear combination of $F_1-F,F_2-F$. Hence the gradient can be written as a linear combination of $F_1-F$ and a vector orthogonal to it on the plane spanned by $F,F_1,F_2$. The claim now follows from the fact that the angle is invariant to any small movement of $F_1$ in the direction of $F_1-F$.
+
+\section{Proof of \theoremref{thm:og_is_cheb}} \label{app:og_is_cheb}
+Since $f$ is a geodesic net, the principal normals of $f_x,f_y$ are parallel to the surface normal $n$. Hence $f_{xx} = af_x+bn, \  f_{yy} = cf_y +dn$ for some $a,b,c,d \in {\R}$ and from $f_x \bot f_y$ we get that $\langle f_{xx},f_y \rangle = \langle f_{yy},f_x \rangle = 0$. Using the orthogonality $f_x \bot f_y$ again, we get that $0 = \langle f_x,f_y \rangle_x = \langle f_{xx},f_y \rangle + \langle f_x,f_{xy} \rangle$ and so $f_{xy} \bot f_x$. Therefore $\langle f_x, f_x\rangle_y = 2\langle f_x,f_{xy} \rangle = 0$ and similarly $2\langle f_y,f_{xy} \rangle = 0$ and so $\|f_x\|_y=\|f_y\|_x=0$. \hfill$\square$
+
+\section{Laplacian derivations and properties}
+
+\subsection{Derivation of the Laplacian} \label{app:laplace_derivation}
+We first compute the gradient of the area of a single DOG quad, defined in \secref{sec:dog_area} as $Q = \frac{1}{4}(l_1+l_3)(l_2 + l_4)$ using the notation of \figref{fig:quad_area}. We note that:
+\begin{equation}
+\frac{\partial\|F-F_1\|}{\partial F} = \frac{F-F_1}{\|F-F_1\|}.
+\end{equation}
+Plugging this in and using the chain rule leads to
+\begin{equation} \label{eq:vertex_area_diff}
+\begin{split}
+\frac{\partial Q}{\partial F} = &\frac{1}{4}\frac{\partial(\|F-F_1\|+\|F_{12}-F_2\|)(\|F-F_2\|+\|F_{12}-F_1\|)}{\partial F} = \\
+&\frac{1}{4}\left(\frac{\|F-F_2\|+\|F_{12}-F_1\|}{\|F-F_1\|}(F-F_1) \ + \right.\\
+& \quad \left.\frac{\|F-F_1\|+\|F_{12}-F_2\|}{\|F-F_2\|}(F-F_2)\right).
+\end{split}
+\end{equation}
+\equref{eq:laplacian} now follows by summing up the contribution of all faces incident on $F$ and rearranging the terms per edge. 
+
+\subsection{Equivalence to cotan weights on planar nets} \label{app:laplace_linear_precision}
+
+If a DOG inner vertex and its 8 surrounding neighbors lie on a plane, the angles around the star are $\frac{\pi}{2}$. Observe the triangulated 
+%
+\setlength{\intextsep}{1pt}%
+\setlength{\columnsep}{8pt}%
+\begin{wrapfigure}{r}{0.3\columnwidth}
+%        \vspace{-10pt}
+%        \hspace{-20pt}
+        \centering
+        \includegraphics[width=\linewidth]{images/planar_cot_weights}
+\end{wrapfigure}
+%
+quads in the inset. Note that $\cot(\alpha) = \frac{\|F_2-F\|}{\|F_1-F\|}$ and $\cot(\frac{\pi}{2})=0$, therefore the edge weights of the DOG Laplacian correspond to the edge weights of the cotan Laplacian \cite{cot_pink_polth} for any triangulation of the planar orthogonal grid. The cotan Laplacian applied to a planar mesh vanishes, hence so does the DOG Laplacian $\LP$, meaning that it satisfies the linear precision property.
+
+%\begin{figure}[b]
+%	\includegraphics[width=0.3\linewidth]{images/planar_cot_weights}
+%	\caption{In the special case where the star around $F$ is planar, the edge weights of a DOG Laplacian are the same as the cotangent weights of any triangulation of the quad mesh in the figure as $\cot(\alpha) = \frac{\|F_2-F\|}{\|F_1-F\|}$ and $\cot(\frac{\pi}{2})=0$.}
+%	\label{fig:planar_cot_weights}
+%\end{figure}
+
+\subsection{Proof of \lemmaref{lem:laplace_cheb}} \label{app:laplace_cheb_lemma_proof}
+Let $Q_1,Q_2,Q_3,Q_4$ be the quad areas around vertex $F$, as denoted in \figref{fig:vec_area}.
+Assuming the DOG is Chebyshev, the following holds:
+\begin{equation} \label{eq:cheb}
+\begin{split}
+ &\|F_{12}-F_1\| = \|F_2-F\| = \|F_{\bar12}-F_{\bar1}\|, \\
+ &\|F_1-F_{1 \bar2} \| = \|F-F_{\bar 2}\| = \|F_{\bar1}-F_{\bar1 \bar2}\|, \\
+ &\|F_{12}-F_2\| = \|F_1-F\| = \|F_{1\bar2}-F_{\bar2}\|, \\
+ &\|F_2-F_{\bar1 2} \| = \|F-F_{\bar 1}\| = \|F_{\bar2}-F_{\bar1 \bar2}\|.
+\end{split}
+\end{equation}
+%
+Plugging this into \equref{eq:vertex_area_diff}, we get:
+\begin{equation}
+\begin{split}
+&\frac{\partial Q_1}{\partial F} = -\frac{\|F-F_2\|}{2}\delta_1F-\frac{\|F-F_1\|}{2}\delta_2F, \\
+&\frac{\partial Q_2}{\partial F} = -\frac{\|F-F_{\bar 1}\|}{2}\delta_2F - \frac{\|F-F_2\|}{2}\delta_{\bar1}F, \\
+&\frac{\partial Q_3}{\partial F} = -\frac{\|F-F_{\bar 2}\|}{2}\delta_{\bar1}F - \frac{\|F-F_{\bar 1}\|}{2}\delta_{\bar2}F, \\
+&\frac{\partial Q_4}{\partial F} = -\frac{\|F-F_1\|}{2}\delta_{\bar2}F - \frac{\|F-F_{\bar 2}\|}{2}\delta_1F.
+\end{split}
+\end{equation}
+And therefore:
+\begin{equation}
+\frac{\partial \Atotal}{\partial F} = \sum_{i=1}^4 \frac{\partial Q_i}{\partial F}=  -\left(s^2\left(\delta_1+\delta_{\bar1}\right) + s^1\left(\delta_2+\delta_{\bar2}\right)\right),
+\end{equation}
+with $s^2 = \frac{1}{2}\left( \| F-F_2 \|+\| F-F_{\bar2} \|\right)$ and $s^1 = \frac{1}{2}\left( \| F-F_1 \|+\| F-F_{\bar1} \|\right)$. By \equref{eq:dog_normal_delta}, the above is a linear combination of two vectors parallel to $N$. Plugging in the vertex area $A=s^1s^2$, we get:
+\begin{align}
+\frac{\partial \Atotal}{\partial F} &= -s^1s^2\left(\frac{\delta_1F+\delta_{\bar 1}F}{s^1}+\frac{\delta_2F+\delta_{\bar2}F}{s^2}\right)= \\
+\nonumber
+&= -A\left(\frac{2\,\|\delta_1F+\delta_{\bar 1}F\|}{\|F - F_1\|+\|F - F_{\bar 1}\|} + \frac{2\,\|\delta_2F+\delta_{\bar 2}F\|}{\|F - F_2\|+\|F - F_{\bar 2}\|}\right)N.
+\end{align}
+\hfill$\square$
+
+\section{Proof of \theoremref{Thm:mean_curvature_normal_con}} \label{app:mean_normal_laplacian_conv}
+To shorten notation, we remove the explicit $\epsilon$, denoting $K^1 = K^1_\epsilon$, $\ f_1=f_1(\epsilon)$, etc.
+We first prove that the normals and mean curvature converge by showing that the curves' curvature normals $K^1N,\ K^2N$ converge under sampling. For $K^1N$ this amounts to computing the limit:
+\begin{equation} \label{eq:K1N}
+\lim_{\epsilon \to 0} K^1N = \lim_{\epsilon \to 0} 2\frac{\delta_1 f + \delta_{\bar1}f}{\|f_1-f\| + \|f_{\bar1}-f\|}.
+\end{equation}
+We denote the normalized curve tangent as $t=\frac{f_x}{\|f_x\|}$, the curve's curvature by $\kappa$ and its principal normal by $n$. We use the Taylor expansion of $f$ to write its nearby points. By Appendix A in \cite{rabi18}:
+\begin{align} 
+\nonumber
+&\delta_1 f = \frac{f_x}{\|f_x\|} + \epsilon\left(-\frac{\langle f_{xx},f_x \rangle}{2\langle f_x,f_x \rangle^{{3}/{2}}}f_x + \frac{f_{xx}}{2\|f_x\|}\right) + o(\epsilon^2), \\
+\nonumber
+&\delta_{\bar1} f = -\frac{f_x}{\|f_x\|} + \epsilon\left(-\frac{\langle f_{xx},f_x \rangle}{2\langle f_x,f_x \rangle^{{3}/{2}}}f_x + \frac{f_{xx}}{2\|f_x\|}\right) + o(\epsilon^2), \\
+\label{eq:taylor}
+&\delta_{1} f + \delta_{\bar1} f = 2\epsilon\left(-\frac{\langle f_{xx},f_x \rangle}{2\langle f_x,f_x \rangle^{{3}/{2}}}f_x + \frac{f_{xx}}{2\|f_x\|}\right) + o(\epsilon^2).
+\end{align}
+Let $\lambda = \|f_x\|$. We can write the derivatives of $f$ in terms of the tangent and principal normal of $f$:
+\begin{equation}
+f_x = \lambda t, \ f_{xx} = \lambda_x t +\lambda^2\kappa n, \ \lambda_x = \langle f_x,f_x \rangle _x = \frac{\langle f_{xx},f_x\rangle}{\|f_x\|}.
+\end{equation}
+Plugging this in \equref{eq:taylor}, we get
+\begin{equation*}
+\begin{split}
+\delta_{1} f + \delta_{\bar1} f &= 2\epsilon\left(-\frac{\lambda \langle f_{xx},f_x \rangle}{2\langle f_x,f_x \rangle^{{3}/{2}}}t + \frac{\lambda_x}{2\|f_x\|}t + \frac{\lambda^2\kappa}{2\|f_x\|}n\right) + o(\epsilon^2) = \\
+&= 2\epsilon\left(-\frac{\|f_x\|\langle f_{xx},f_x \rangle}{2(\norm{f_x}^2)^{{3}/{2}}}t + \frac{\langle f_{xx},f_x\rangle}{2\|f_x\|^2}t + \frac{\lambda \kappa}{2}n\right) + o(\epsilon^2) = \\
+&=\epsilon \lambda \kappa n + o(\epsilon^2).
+\end{split}
+\end{equation*}
+Plugging that into \equref{eq:K1N} results in
+\begin{equation*} 
+\lim_{\epsilon \to 0} K^1N = \lim_{\epsilon \to 0} 2\frac{\epsilon\lambda \kappa n}{\|f_1-f\| + \|f_{\bar1}-f\|} = \lim_{\epsilon \to 0} \,\frac{2\epsilon\lambda \kappa n}{2\lambda\epsilon + o(\epsilon^2)} = \kappa n.
+\end{equation*}
+
+This proves the convergence of $K^1N$, and the proof for $K^2N$ is analogous. The convergence of the mean curvature normal $HN$ follows by linearity.
+Since $f$ is an orthogonal geodesic net, by \theoremref{thm:og_is_cheb} it is also a Chebyshev net satisfying $\|f_x\|_y = \|f_y\|_x = 0$, and therefore \equref{eq:cheb} is satisfied up to second order, i.e.\ $\|f_1-f\| = \|f_{12}-f_2\| + o(\epsilon^2)$, etc. Hence the principal normal and the curvature vector for the $f_x$ direction given by the Laplacian is
+
+$K^{1*}N^* = 2\left(\frac{\delta_1 f}{\|f_1-f\| + \|f_{\bar1}-f\| + o(\epsilon^2)} + \frac{\delta_{\bar1}f}{\|f_1-f\| + \|f_{\bar1}-f\| + o(\epsilon^2)}\right),
+$
+
+\noindent
+and by a similar limit calculation we get that the mean curvature normal of the DOG Laplacian converges. \hfill$\square$
+
+

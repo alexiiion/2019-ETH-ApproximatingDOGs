@@ -1,0 +1,293 @@
+# comments are ignored
+# do not change the qualifiers (including spaces!)
+# deliminator is the colon :
+
+
+
+# start_empty
+
+
+models_folder: D:/code_repositories/2019_ApproximatingWithDOGs/models/
+# models_folder: C:/Users/alex/0-DATA/__workspace/ApproximatingWithDOGs/models/
+
+
+
+# ------ (rebuttal): K experiements -------
+
+
+# models_folder: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/results for paper/_all paper results for K evaluation/
+# target: 2.1 bumpy side 5p.obj
+# target: 2.2 bumpy side 11p.obj
+# target: 12.1 bumpy cube.obj
+# target: z lilium test 00056.obj
+
+# models_folder: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/compare to related work/Stein18/models (Olga)/
+# target: bumpy-side_V2477_out.obj
+
+# ------ end (rebuttal): K experiements -------
+
+
+# ------ (revision) geodesic sets experiements -------
+
+# scale_target: 20
+# load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/random geodesics/bumpy side/vary random sets, 4-6 geodesics/random1, set1
+
+# scale_target: 0
+# models_folder: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/random geodesics/bumpy side/vary random sets, 4-6 geodesics/random1, set1 -- 2020-08-10_12-39-23__bumpy-side_V2477/
+# target: out6.obj
+# target: out_stitched8.obj
+
+# scale_target: 0
+# load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/random geodesics/face/set1/mask-aimshape__scene
+
+# ------ end (revision) geodesic sets experiements -------
+
+
+# ------ (revision) limitations -------
+
+scale_target: 0
+models_folder: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/limitations/
+
+# load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/limitations/bumpy side, noisy/2020-08-11_10-18-58__bumpy-side_V2477--noisy/bumpy-side_V2477--noisy__scene
+# target: bumpy side, noisy/2020-08-11_10-18-58__bumpy-side_V2477--noisy/out6.obj
+
+# scale_target: 15
+# target: 91 for testing/primitives/cylinder_failure_open.obj
+
+# load_scene: D:/Dropbox/ETH/2019-SIGGRAPH-Developable surfaces (Olga, alex)/Results/experiements for revision/limitations/sparse vertices/2020-08-23_13-00-19__cylinder_failure_open/cylinder_failure_open__scene
+target: sparse vertices/2020-08-23_13-00-19__cylinder_failure_open/out.obj
+
+# ------ end (revision) limitations -------
+
+
+
+
+
+initialize_optimization: 0
+# scale_target: 30
+
+
+
+# DEVELOPABLE shapes
+# ------------------
+
+# target: /91 for testing/primitives/cube.obj
+# target: /91 for testing/primitives/cylinder.obj
+# target: /91 for testing/coffee-closed_keenan.obj
+# target: /6 non-develoapables by keenan/coffee.obj
+
+# target: /91 for testing/fandisk/fandisk.obj
+# target: /91 for testing/fandisk/fandisk_F5000.obj
+# target: /91 for testing/fandisk/fandisk_F1682.obj
+
+
+
+# NON-DEVELOPABLE shapes
+# ----------------------
+
+# BUNNY
+# -----
+# scale_target: 30
+# target: /91 for testing/bunny/bunny.obj
+# load_scene: /91 for testing/bunny/bunny__scene_16p
+# load_scene: /91 for testing/bunny/bunny__scene_46p
+
+# target: /91 for testing/bunny/bunny_keenan_w30.obj
+# load_scene: /91 for testing/bunny/bunny_keenan_w30__scene
+# load_scene: /91 for testing/bunny/bunny_keenan_w30__scene_SIGGRAPH20
+
+# target: /91 for testing/bunny/smooth_bunny_w30.obj
+# target: /5 non-developables complex/bunny_ordered.obj
+# target: /91 for testing/bunny/bunny-head_keenan.obj
+
+
+# BUMPY
+# -----
+# target: ./91 for testing/bumpy cube/bumpy-cube_F2496_creases.obj
+
+# target: ./91 for testing/bumpy cube/bumpy-cube_F6000.obj
+# target: ./91 for testing/bumpy cube/bumpy-cube_F40000.obj
+# target: ./91 for testing/bumpy cube/bumpy-cube_F2496.obj
+
+# scale_target: 20
+# target: /91 for testing/bumpy side/bumpy-side_V2477.obj
+# target: /91 for testing/bumpy side/bumpy-side_V2477--noisy.obj
+# load_scene: /91 for testing/bumpy side/bumpy-side_V2477__scene
+
+# target: /91 for testing/bumpy side/bumpy-side.obj
+# load_scene: /91 for testing/bumpy side/bumpy-side__geodesics
+# load_scene: /91 for testing/bumpy side/2020-01-16_20-49-40__bumpy-side_V2477__scene
+
+# target: /91 for testing/bumpy side/bumpy-side_V443.obj
+
+# target: /91 for testing/bumpy side/bumpy-side-irregular.obj
+
+# scale_target: 20
+# target: /91 for testing/bumpy side/bumpy-side-irregular-extreme.obj
+# load_scene: /91 for testing/bumpy side/2020-01-18_19-11-09__bumpy-side-irregular-extreme/bumpy-side-irregular-extreme__scene
+# load_scene: /91 for testing/bumpy side/2020-01-18_20-05-38__bumpy-side-irregular-extreme__scene
+
+# target: /91 for testing/bumpy side/bumpy-side_F2496.obj
+
+# target: /91 for testing/bumpy side/bumpy-side_F4000.obj
+# load_scene: /91 for testing/bumpy side/bumpy-side_F4000__ruled
+
+
+
+# LILIUM
+# -----
+# scale_target: 20
+# target: ./91 for testing/lilium/lilium.obj
+
+# load_scene: /91 for testing/lilium/lilium__geodesics
+# load_scene: /91 for testing/lilium/lilium__scene_2020-01-13_23-04-34
+###load_scene: /91 for testing/lilium/2020-01-13_15-43-10__lilium/lilium__scene
+
+# load_scene: /91 for testing/lilium/granularity/lilium__scene_6patches
+# load_scene: /91 for testing/lilium/granularity/lilium__scene_13patches
+# load_scene: /91 for testing/lilium/granularity/lilium__scene_20patches
+
+
+# ARCHITECTURAL
+# -----
+# scale_target: 30
+# target: ./91 for testing/architectural/masonry-fig7.obj
+# load_scene: 91 for testing/architectural/2020-01-18_23-45-44__masonry-fig7__scene
+
+# scale_target: 14
+# target: ./91 for testing/architectural/Pavilion.obj
+# target: ./91 for testing/architectural/Pavilion-shortV1105.obj
+# target: ./91 for testing/architectural/PavilionV2091.obj
+
+# target: ./91 for testing/architectural/3holes.obj
+
+# PRIMITIVES
+# -----
+# target: 91 for testing/primitives/cylinder.obj
+# scale_target: 10
+# target: 91 for testing/primitives/sphere-flipper.obj
+# load_scene: 91 for testing/primitives/2020-01-19_00-52-19__sphere-flipper__scene
+
+# scale_target: 15
+# target: 91 for testing/primitives/cylinder_failure_open.obj
+
+# scale_target: 15
+# target: 91 for testing/primitives/cone_7-30_uniform2590.obj
+# target: 91 for testing/primitives/cone_7-30.obj
+
+# scale_target: 15
+# target: /91 for testing/primitives/cube_aa__concatenated.obj
+# target: /91 for testing/primitives/cube_aa.obj
+# target: /91 for testing/primitives/cube_remesh2.obj
+
+# load_scene: 91 for testing/primitives/2020-01-21_22-33-43__cone_7-30/cone_7-30__scene ### moved to dropbox
+
+# scale_target: 10
+# target: 91 for testing/primitives/4_corners.obj
+
+
+# DOUBLE CONE
+# -----
+# target: /91 for testing/double cone/double-cone_f00.obj
+# target: /91 for testing/double cone/double-cone_f05.obj
+# target: /91 for testing/double cone/double-cone_f10.obj
+# target: /91 for testing/double cone/double-cone_f40.obj
+
+# target: /91 for testing/double cone/single-cone_f10.obj
+# load_scene: /91 for testing/double cone/single-cone_f10__ruled
+
+# target: /91 for testing/double cone/double-cone_fillet10_F1940.obj
+# load_scene: /91 for testing/double cone/double-cone_fillet10_F1940__ruled
+
+
+
+# CONE (by Oded Stein)
+# ---------------
+# target: /91 for testing/cone-Stein/cone_argyle.obj
+# load_scene: /91 for testing/cone-Stein/2020-01-13_10-13-54__cone_argyle/cone_argyle__scene
+
+# load_scene: /91 for testing/cone-Stein/cone_argyle_w30__ruled
+# load_scene: /91 for testing/cone-Stein/2020-01-12_22-19-40__cone_argyle_w30/cone_argyle_w30__scene
+
+# target: /91 for testing/cone-Stein/cone_argyle_w30__upsample1.obj
+# target: /91 for testing/cone-Stein/cone_argyle.obj
+# target: /91 for testing/cone-Stein/cone_irregular.obj
+# target: /91 for testing/cone-Stein/cone_nonuniform.obj
+
+
+## cyclide
+# target: /91 for testing/cyclides-Stein/cyclide_regular.obj
+# target: /91 for testing/cyclides-Stein/cyclide_argyle.obj
+# target: /91 for testing/cyclides-Stein/cyclide_nonuniform.obj
+
+# load_scene: /91 for testing/cyclides-Stein/2020-01-13_11-29-46__cyclide_argyle/cyclide_argyle__scene
+
+
+## Spheres
+# target: /91 for testing/spheres-Stein/sphere_cube.obj
+# target: /91 for testing/spheres-Stein/sphere_icosahedron.obj
+# target: /91 for testing/spheres-Stein/sphere_polar.obj
+
+
+
+# TEA CUP
+# -----
+# target: ./91 for testing/tea cup/tea-cup-modelled.obj
+# target: ./91 for testing/tea cup/tea-cup-modelled_V3223.obj
+# target: ./91 for testing/tea cup/tea-cup-scanned_F4470_w25.obj
+
+
+# BEETLE
+# ------
+# target: ./91 for testing/beetle/beetle_w30.obj
+# target: ./91 for testing/beetle/beetle_F7000_w30.obj
+
+
+# OTHER
+# -----
+# target: ./91 for testing/_other/dome_hole_uniform.obj
+# target: ./91 for testing/_other/dome_hole.obj
+# target: ./91 for testing/_other/dome.obj
+
+# scale_target: 40
+# target: ./91 for testing/face/mask-aimshape.obj
+# target: ./91 for testing/face/face-mask_dense0.4.obj
+# target: /91 for testing/dog/dog.obj
+
+# scale_target: 40
+# target: /91 for testing/dog/dog_uniform.obj
+# load_scene: /91 for testing/dog/2020-01-22_02-36-25__dog_uniform__scene
+# load_scene: /91 for testing/dog/dog__ruled
+
+
+
+
+# other stuff
+# ----------------------
+
+# target: /1 DOGs/plane.obj
+# target: /1 DOGs/circular_cylinders_8.obj
+# load_scene: /1 DOGs/circular_cylinders_8__ruled
+# target: /1 DOGs/circular_cylinders_8_remeshed.obj
+# 
+# target: /1 DOGs/circular_cones_10.obj
+# target: /1 DOGs/circular_cones_10_remeshed.obj
+# 
+# target: /2 composite developables/2_corners.obj
+# target: /2 composite developables/2_corners__remeshed.obj
+# target: /2 composite developables/cone_and_plane_rot.obj
+# 
+# target: /4 non-developables intermediate/bumpy-multi-side.obj
+#
+# target: /4 non-developables intermediate/bumpy-side.obj
+# target: /91 for testing/bumpy-side_F4000.obj
+
+# target: /4 non-developables intermediate/bumpy-side__low.obj
+
+# target: /5 non-developables complex/face.obj
+# 
+# target: /5 non-developables complex/bunny_5x.obj
+# 
+# target: /5 non-developables complex/car.obj
+# target: /5 non-developables complex/car-open.obj
+# target: /5 non-developables complex/dog.obj

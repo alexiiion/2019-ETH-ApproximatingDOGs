@@ -1,0 +1,84 @@
+% % !TeX root = ./ApproximatingDOGs.tex
+
+\subsection{Discussion}  
+\label{sec:discussion}
+
+
+\paragraph{Limitations.}   
+
+Our method is designed to approximate arbitrary shapes,
+\Rev{but it also exhibits some limitations. DOGs are designed to approximate smooth surfaces and, in our algorithm, sharp creases emerge from intersections between them.
+Our method is not specifically optimized towards preserving sharp creases,} 
+which is evident in the fandisk example in \figref{fig:mechanical_cube-fandisk}.
+\Rev{While sharp creases do emerge, and the cube and fandisk are approximated with little error overall, locally some corners and creases in the fandisk example end up being rounded off.} 
+For example, the left edge of the center piece is smoothed because the DOG fitted to both sides of the crease. Since such mechanical shapes are typically easy to segment based on creases, we acknowledge that other approaches that build on prior segmentation (e.g., \cite{mitani2004making}) likely lead to more feature-preserving solutions. Such segmentation can be integrated with our method at the placement finding stage in the future. 
+
+\begin{figure} [b]
+    % \vspace{10pt}
+    \centering
+    \noindent\includegraphics[width=0.95\linewidth]{figures/"sharp-creases".pdf}
+    \caption{
+        Our method can approximate models with sharp creases, \Rev{yet it is not optimized for perserving such features specifically. }
+        (Top)~the cube is approximated with 6~patches ($d_H = 1.2\%$), % \AI{$ \Kmax = x $, $ \Kmean = y $}), 
+        and the fandisk (bottom) with 17~patches, ($d_H = 1.7\% $).%, \AI{$ \Kmax = x $)}.
+        \label{fig:mechanical_cube-fandisk}}
+\end{figure}
+
+\begin{figure} 
+\centering
+\noindent\includegraphics[width=\linewidth]{figures/"mesh quality-irregular, noisy, sparse, fail".pdf}
+\caption{
+    Our algorithm is not strictly limited to uniform tessellation and can approximate meshes that are valid manifolds \Rev{with sufficient number of vertices. Our algorithm succeeds with (a)~irregularly tessellated meshes, (b)~noisy surfaces and (c)~on simple shapes, even if very sparsely tessellated. While the wrapping stage is less prone to challenging tessellations, (d)~the non-linear projection fails, yet it succeeds given a more uniform mesh. }
+    \label{fig:mesh_robustness}}
+    \vspace{-10pt}
+\end{figure}
+
+Our method is robust with respect to the tessellation of the target shape, as we show in \figref{fig:mesh_robustness}. 
+\Rev{
+We note, however, that we do achieve the most success with close-to-uniform tessellations.
+Irregular tessellations (\figref{fig:mesh_robustness}a) or noisy surfaces (\figref{fig:mesh_robustness}b) can be approximated using our algorithm. Noisy surfaces lead to a larger number of geodesics, as the stopping condition is based on their curvature. 
+Sparse meshes, if simple enough, can succeed with our algorithm, as shown in \figref{fig:mesh_robustness}c. Our algorithm does find two geodesics on each rim of the cylinder and wraps it with two DOG patches accordingly. 
+In the wrapping stage, our algorithm uses the target mesh vertices selectively as position constraints, with $\delta_{\text{distance}}$ determining how far the vertices may be from the current patch. Our algorithm initializes $\delta_{\text{distance}}$ based on the average edge length of the target model and applies a multiplier of 1.25. This default value seems to perform well on simple shapes such as the cylinder, but might fail for more complex shapes. 
+As we show in \figref{fig:mesh_robustness}d (left), a very sparse tessellation can lead to failure in our non-linear projection stage, even after successful wrapping. Using a more uniform tessellation can mitigate this problem, as we preliminarily show in \figref{fig:mesh_robustness}d (right). Such a uniform remeshing step can be easily integrated into our pipeline in the future.
+}
+
+
+
+\paragraph{Comparison with Stein et al.~\shortcite{stein_dev} } 
+
+We already compared our results with previous methods on the bunny example in \figref{fig:compare_4bunnies}. In \figref{fig:compare_stein}, we extend our comparison with Stein et al.~\shortcite{stein_dev}, as it is the most recent representative work in this area. We use their open source code and run several of our models with their method, taking care to select the best possible parameter settings for each example, such as energies and optimizer strategies. 
+Our method generally results in smoother approximations.
+The authors do acknowledge that their ``final design is largely guided by the input tessellation'' leaving the user to provide a suitable, curvature aligned mesh. We, on the other hand, use meshes that are common in 3D reconstruction or modeling software. In terms of fabrication, their method lends itself to flank milling, as they acknowledge in their paper. 
+\Rev{While the orginal work does not provide any patch decomposition, we applied the automatic segmentation and parameterization method \cite{Sorkine:BoundedDistortParam:2002} that the authors mention in their paper. We show the obtained patches in \figref{fig:compare_stein_patches}. However, since this parameterization method is generic and not specially tailored to piecewise developable surfaces, the resulting patches may run across creases. }
+Our results consist of well-defined flattenable patches that can readily be fabricated from sheet material. 
+\Rev{One limitation worth noting here is that the boundary of the open shapes is not smooth in \emph{both} methods, pointing to more research questions.}
+
+\begin{figure} [h]
+    \centering
+    \noindent\includegraphics[width=\linewidth]{figures/"comparison Stein".pdf}
+    \caption{
+        We compare several of our results to the method of Stein et al.~\shortcite{stein_dev}, as the most recent representative of this line of work. 
+        \label{fig:compare_stein}}
+\end{figure}
+
+\begin{figure} [h]
+    \centering
+    \noindent\includegraphics[width=0.8\linewidth]{figures/"comparison stein with olgas patches".pdf}
+    \caption{
+        \Rev{
+        The method of  Stein et al.~\shortcite{stein_dev} does not readily export flattenable patches. We applied the method that they cite as a possible automatic segmentation tool \cite{Sorkine:BoundedDistortParam:2002}, which produces unfavorable patches. Here, 229 patches are found. We used 1.005 as the distortion threshold and $10^6$ for the perimeter/area ratio.
+        }
+        \label{fig:compare_stein_patches}}
+\end{figure}
+
+
+
+
+\paragraph{Future user interfaces}
+
+In this paper, our focus is on building a stable algorithm with only high-level parameters, resulting in high quality, automatic developable approximations. In the future, our algorithm can be augmented with elaborate user interaction for greater real-world impact. Such interaction design requires analysis of users’ requirements, current workflow and context, including how much influence they would like to have in such design tasks. 
+Since our algorithm is automatic, it is very suitable for suggestive user interfaces, effectively making multiple suggestions to users, which they can mix selectively. This can be implemented within our global placement routine, which accepts pre-initializations and fixed selections. Alternatively, we can use the previously fitted DOGs and let them slide towards poorly covered areas. 
+If users wish to define a rough layout of the patches, a possible interaction would be to allow them to paint onto the surface. We could trace the closest geodesic and generate preview patches in realtime. These user-selected patches can be used again as pre-selected geodesics in our global placement optimization, which then covers the remaining areas. 
+Similarly, users may wish to specify different degrees of granularity \emph{locally}. This selection could be integrated into our placement optimization and offered as an interactive brushing interaction for users.
+Lastly, symmetry is an important visual attribute that contributes to the perception of aesthetics. Our algorithm can be extended by adding symmetry detection and allowing users to select symmetry axes in their design. 
+
